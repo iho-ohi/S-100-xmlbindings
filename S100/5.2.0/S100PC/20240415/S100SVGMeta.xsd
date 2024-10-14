@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- © Copyright 2011-2018, 2019, 2022, 2023 International Hydrographic Organisation
+License
+Certain parts of this document may refer to or be based on the standards, documents, schemas,
+or other material of the International Organization for Standardization (ISO), Open Geospatial
+Consortium (OGC), International Hydrographic Organization / Organisation Hydrographique
+Internationale (IHO/OHI).
+The ISO material can be obtained from any ISO member and from the Web site of the ISO Central
+Secretariat at www.iso.org.
+The OGC material can be obtained from the OGC Web site at www.opengeospatial.org.
+The IHO material can be obtained from the IHO Web site at www.iho.int or from the International
+Hydrographic Organization Secretariat.
+
+Permission to copy and distribute this document is hereby granted provided that this notice is
+retained on all copies, and that the IHO is credited when the material is redistributed
+or used in part or whole in derivative works.
+Redistributions in binary form must reproduce this notice in the documentation and/or other
+materials provided with the distribution.
+
+Disclaimer
+This work is provided by the copyright holders and contributors "as is" and any express or implied
+warranties, including, but not limited to, the implied warranties of merchantability and fitness
+for a particular purpose are disclaimed. In no event shall the copyright owner or contributors be
+liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including,
+but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or
+business interruption) however caused and on any theory of liability, whether in contract, strict
+liability, or tort (including negligence or otherwise) arising in any way out of the use of this
+software, even if advised of the possibility of such damage.
+-->
+<!-- 
+	Version 5.2.0 Build 20231201: source and format made optional, file name changed from
+		SVG1 to S100SVGMeta. Namespace and build updated due to these changes.
+-->
+<xs:schema
+  xmlns:S100SVGMeta="http://www.iho.int/SVGMetadata/5.2"
+  attributeFormDefault="unqualified"
+  elementFormDefault="qualified"
+  targetNamespace="http://www.iho.int/SVGMetadata/5.2"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  version="5.2.0-20231201">
+	<xs:element name="S100SVG">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Description">
+					<xs:complexType>
+						<xs:attribute ref="S100SVGMeta:publisher" use="required" />
+						<xs:attribute ref="S100SVGMeta:creationDate" use="required" />
+						<xs:attribute ref="S100SVGMeta:source" use="optional" />
+						<xs:attribute ref="S100SVGMeta:format" use="optional" />
+						<xs:attribute ref="S100SVGMeta:version" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:attribute name="publisher" type="xs:string" />
+	<xs:attribute name="creationDate" type="xs:date" />
+	<xs:attribute name="source" type="xs:string" />
+	<xs:attribute name="format" type="xs:string" />
+	<xs:attribute name="version" type="xs:decimal" />
+</xs:schema>

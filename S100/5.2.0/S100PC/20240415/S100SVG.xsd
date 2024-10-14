@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The S-100 SVG profile is a subset of the SVG Tiny 1.2 profile http://www.w3.org/TR/SVGTiny12/
+	and is provided as a derivative work subject to the W3C license:
+  This work is being provided by the copyright holders under the following license.
+
+  License
+  By obtaining and/or copying this work, you (the licensee) agree that you have read,
+  understood, and will comply with the following terms and conditions.
+
+  Permission to copy, modify, and distribute this work, with or without modification,
+  for any purpose and without fee or royalty is hereby granted, provided that you include
+  the following on ALL copies of the work or portions thereof, including modifications:
+
+  The full text of this NOTICE in a location viewable to users of the redistributed or
+  derivative work.
+  Any pre-existing intellectual property disclaimers, notices, or terms and conditions.
+  If none exist, the W3C Software and Document Short Notice should be included.
+  Notice of any changes or modifications, through a copyright statement on the new code
+  or document such as "This software or document includes material copied from or derived
+  from [title and URI of the W3C document]. Copyright © [YEAR] W3C® (MIT, ERCIM, Keio, Beihang)."
+
+  Disclaimers
+  THIS WORK IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS
+  FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENT WILL NOT INFRINGE
+  ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+
+  COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL
+  DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENT.
+
+  The name and trademarks of copyright holders may NOT be used in advertising or publicity
+  pertaining to the work without specific, written prior permission. Title to copyright in
+  this work will at all times remain with copyright holders.
+
+	W3C W3C Software and Document Short Notice:
+	Copyright © 2008 World Wide Web Consortium, (Massachusetts Institute of Technology
+	European Research Consortium for Informatics and Mathematics, Keio University, Beihang).
+	All Rights Reserved. This work is distributed under the W3C® Software and Document
+	License [1] in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+	the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+	[1] http://www.w3.org/Consortium/Legal/copyright-software
+ -->
+<!-- 20220705: Updated to change import of xml.xsd to relative instead of absolute location
+		at OEM request.
+-->
+<!-- 20231110: Schema modified to comply with new Profile in S-100 Part 9 Annex B (HB)
+     20231201: Namespace updated to 5.2 since this will be in Edition 5.2. Version added. (RMM)
+-->
+<xs:schema
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:meta="http://www.iho.int/SVGMetadata/5.2"
+  attributeFormDefault="unqualified"
+  elementFormDefault="qualified"
+  targetNamespace="http://www.w3.org/2000/svg"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" version="5.2.0-20231201">
+
+  <!-- schemaLocation of xml.xsd references 5.0 dist (relatively, as requested by OEMs) -->
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="../../../5.0.0/w3c/XML/2001/xml.xsd"/>
+
+  <!-- Note that the import below expects to find the SVG metadata schema in the same directory -->
+	<xs:import namespace="http://www.iho.int/SVGMetadata/5.2" schemaLocation="S100SVGMeta.xsd"/>
+
+  <xs:simpleType name="FillRule">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="nonzero"/>
+      <xs:enumeration value="evenodd"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="LineCap">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="butt"/>
+      <xs:enumeration value="round"/>
+      <xs:enumeration value="square"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="LineJoin">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="miter"/>
+      <xs:enumeration value="round"/>
+      <xs:enumeration value="bevel"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ShapeRendering">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="auto"/>
+      <xs:enumeration value="optimizeSpeed"/>
+      <xs:enumeration value="crispEdges"/>
+      <xs:enumeration value="geometricPrecision"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Display">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="inline"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Opacity">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Width">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MiterLimit">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attributeGroup name="styleAttributes">
+    <xs:attribute name="fill" type="xs:string" use="optional"/>
+    <xs:attribute name="fill-opacity" type="Opacity" use="optional"/>
+    <xs:attribute name="fill-rule" type="FillRule" use="optional"/>
+    <xs:attribute name="stroke" type="xs:string" use="optional"/>
+    <xs:attribute name="stroke-opacity" type="Opacity" use="optional"/>
+    <xs:attribute name="stroke-width" type="Width" use="optional"/>
+    <xs:attribute name="stroke-linecap" type="LineCap" use="optional"/>
+    <xs:attribute name="stroke-linejoin" type="LineJoin" use="optional"/>
+    <xs:attribute name="stroke-miterlimit" type="MiterLimit" use="optional"/>
+    <xs:attribute name="stroke-dasharray" type="xs:string" use="optional"/>
+    <xs:attribute name="stroke-dashoffset" type="xs:decimal" use="optional"/>
+    <xs:attribute name="shape-rendering" type="ShapeRendering" use="optional"/>
+    <xs:attribute name="display" type="Display" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="elementAttributes">
+    <xs:attributeGroup ref="styleAttributes"/>
+    <xs:attribute name="style" type="xs:string" use="optional"/> <!-- Deprecated: to keep old symbols valid -->
+    <xs:attribute name="class" type="xs:string" use="optional"/>
+    <xs:attribute name="transform" type="xs:string"/>
+  </xs:attributeGroup>
+
+  <xs:complexType name="Element" abstract="true">
+    <xs:attributeGroup ref="elementAttributes"/>
+  </xs:complexType>
+
+  <xs:element name="element" type="Element" abstract="true"/>
+
+  <xs:complexType name="Container">
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:choice>
+          <xs:element ref="element" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="path" substitutionGroup="element">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="Element">
+          <xs:attribute name="d" type="xs:string" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="line" substitutionGroup="element">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="Element">
+          <xs:attribute name="x1" type="xs:double" use="required"/>
+          <xs:attribute name="y1" type="xs:double" use="required"/>
+          <xs:attribute name="x2" type="xs:double" use="required"/>
+          <xs:attribute name="y2" type="xs:double" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="rect" substitutionGroup="element">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="Element">
+          <xs:attribute name="x" type="xs:double" use="required"/>
+          <xs:attribute name="y" type="xs:double" use="required"/>
+          <xs:attribute name="width" type="xs:double" use="required"/>
+          <xs:attribute name="height" type="xs:double" use="required"/>
+          <xs:attribute name="rx" type="xs:double" use="optional"/>
+          <xs:attribute name="ry" type="xs:double" use="optional"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="circle" substitutionGroup="element">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="Element">
+          <xs:attribute name="cx" type="xs:double" use="required"/>
+          <xs:attribute name="cy" type="xs:double" use="required"/>
+          <xs:attribute name="r" type="xs:double" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ellipse">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="Element">
+          <xs:attribute name="cx" type="xs:double" use="required"/>
+          <xs:attribute name="cy" type="xs:double" use="required"/>
+          <xs:attribute name="rx" type="xs:double" use="required"/>
+          <xs:attribute name="ry" type="xs:double" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="polyline" substitutionGroup="element">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="Element">
+          <xs:attribute name="points" type="xs:string" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="polygon" substitutionGroup="element">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="Element">
+          <xs:attribute name="points" type="xs:string" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="g" type="Container" substitutionGroup="element"/>
+
+  <xs:element name="svg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="title" type="xs:string" minOccurs="0" />
+        <xs:element name="desc" type="xs:string" minOccurs="0"/>
+        <xs:element name="metadata" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="meta:S100SVG" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="element" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:decimal" use="required" fixed="1.2"/>
+      <xs:attribute name="baseProfile" type="xs:string" use="required" fixed="tiny" />
+      <xs:attribute ref="xml:space" use="optional"/>
+      <xs:attribute name="width" type="xs:string" use="required" />
+      <xs:attribute name="height" type="xs:string" use="required" />
+      <xs:attribute name="viewBox" type="xs:string" use="required" />
+      <xs:attributeGroup ref="elementAttributes"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
