@@ -27,7 +27,7 @@
             schemaLocation="https://schemas.s100dev.net/schemas/S100/5.0.0/S100GML/20220620/s100gmlbase.xsd"
             node="/xs:schema">
         <schemaBindings>
-            <package name="_int.iho.s125.s100.gml.base._5_0"/>
+            <package name="_int.iho.s125.s100.gml.base._5_2"/>
         </schemaBindings>
 
         <!-- rename the numDerivativeInterior element -->
@@ -40,7 +40,7 @@
             schemaLocation="https://schemas.s100dev.net/schemas/S100/5.0.0/S100GML/20220620/S100_gmlProfile.xsd"
             node="/xs:schema">
         <schemaBindings>
-            <package name="_int.iho.s125.s100.gml.profiles._5_0"/>
+            <package name="_int.iho.s125.s100.gml.profiles._5_2"/>
         </schemaBindings>
     </bindings>
 

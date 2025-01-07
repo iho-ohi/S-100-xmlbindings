@@ -16,11 +16,11 @@
 
 package org.grad.eNav.s201.utils;
 
-import _int.iho.s201.s100.gml.base._5_0.S100SpatialAttributeType;
-import _int.iho.s201.s100.gml.base._5_0.impl.CurvePropertyImpl;
-import _int.iho.s201.s100.gml.base._5_0.impl.PointPropertyImpl;
-import _int.iho.s201.s100.gml.base._5_0.impl.SurfacePropertyImpl;
-import _int.iho.s201.s100.gml.profiles._5_0.AbstractGMLType;
+import _int.iho.s201.s100.gml.base._5_2.S100SpatialAttributeType;
+import _int.iho.s201.s100.gml.base._5_2.impl.CurvePropertyImpl;
+import _int.iho.s201.s100.gml.base._5_2.impl.PointPropertyImpl;
+import _int.iho.s201.s100.gml.base._5_2.impl.SurfacePropertyImpl;
+import _int.iho.s201.s100.gml.profiles._5_2.AbstractGMLType;
 import _int.iho.s201.gml.cs0._1.AidsToNavigationType;
 import _int.iho.s201.gml.cs0._1.Dataset;
 import _int.iho.s201.gml.cs0._1.S100TruncatedDate;

@@ -384,40 +384,17 @@ class S100ExchangeSetUtilsTest {
         assertNotNull(polygonType.getExterior());
         assertNotNull(polygonType.getExterior().getAbstractRing());
         assertNotNull(polygonType.getExterior().getAbstractRing().getValue());
-        assertTrue(polygonType.getExterior().getAbstractRing().getValue() instanceof RingType);
+        assertTrue(polygonType.getExterior().getAbstractRing().getValue() instanceof LinearRingType);
 
-        // Then investigate the ring type
-        RingType ringType = (RingType)polygonType.getExterior().getAbstractRing().getValue();
-        assertEquals(AggregationType.SEQUENCE, ringType.getAggregationType());
-        assertNotNull(ringType.getCurveMembers());
-        assertEquals(1, ringType.getCurveMembers().size());
-        assertNotNull(ringType.getCurveMembers().get(0));
-        assertNotNull(ringType.getCurveMembers().get(0).getAbstractCurve());
-        assertNotNull(ringType.getCurveMembers().get(0).getAbstractCurve().getValue());
-        assertTrue(ringType.getCurveMembers().get(0).getAbstractCurve().getValue() instanceof CurveType);
-
-        // Then investigate the curve
-        CurveType curveType = (CurveType) ringType.getCurveMembers().get(0).getAbstractCurve().getValue();
-        assertNotNull(curveType.getSegments());
-        assertNotNull(curveType.getSegments().getAbstractCurveSegments());
-        assertEquals(5, curveType.getSegments().getAbstractCurveSegments().size());
+        // Then investigate the linear ring type
+        LinearRingType linearRingType = (LinearRingType)polygonType.getExterior().getAbstractRing().getValue();
+        assertNotNull(linearRingType.getPosList());
 
         // Finally investigate all the segments
-        for(int i=0; i < curveType.getSegments().getAbstractCurveSegments().size(); i++){
-            assertNotNull(curveType.getSegments().getAbstractCurveSegments().get(i).getValue());
-            assertTrue(curveType.getSegments().getAbstractCurveSegments().get(i).getValue() instanceof LineStringSegmentType);
-
-            // Invertigate each individual line segment
-            LineStringSegmentType lineStringSegmentType = (LineStringSegmentType) curveType.getSegments().getAbstractCurveSegments().get(i).getValue();
-            assertNotNull(lineStringSegmentType.getPosList());
-            assertNotNull(lineStringSegmentType.getPosList().getValue());
-            assertEquals(2, lineStringSegmentType.getPosList().getValue().length);
-            assertEquals(geometry.getCoordinates()[i].getX(), lineStringSegmentType.getPosList().getValue()[0]);
-            assertEquals(geometry.getCoordinates()[i].getY(), lineStringSegmentType.getPosList().getValue()[1]);
+        for(int i=0; i<linearRingType.getPosList().getValue().length/2; i++){
+            assertEquals(geometry.getCoordinates()[i].getX(), linearRingType.getPosList().getValue()[2*i]);
+            assertEquals(geometry.getCoordinates()[i].getY(), linearRingType.getPosList().getValue()[2*i+1]);
         }
-
-        // And finally investigate the curve property type
-        //CurvePropertyType
     }
 
     /**
@@ -521,5 +498,84 @@ class S100ExchangeSetUtilsTest {
         // Make sure the translation operations worked correctly
         assertNotNull(certificate);
         assertNotNull(pem);
+    }
+
+    /**
+     * Test that we can correctly convert an array of JTS coordinates into a
+     * simple Double array.
+     */
+    @Test
+    void testCoordinatesToArray() {
+        // Create a test coordinates array
+        Coordinate[] coordinates = new Coordinate[] {
+                new Coordinate(1, 2, 0),
+                new Coordinate(3, 4, 0),
+                new Coordinate(5, 6, 0),
+        };
+
+        // Get the coordinates into a double array
+        Double[] array = S100ExchangeSetUtils.coordinatesToArray(coordinates);
+
+        // Make sure it seems OK
+        assertNotNull(array);
+        assertEquals(1, array[0]);
+        assertEquals(2, array[1]);
+        assertEquals(3, array[2]);
+        assertEquals(4, array[3]);
+        assertEquals(5, array[4]);
+        assertEquals(6, array[5]);
+    }
+
+    /**
+     * Test that we can correctly convert an array of JTS coordinates into a
+     * simple Double List.
+     */
+    @Test
+    void testCoordinatesToList() {
+        // Create a test coordinates array
+        Coordinate[] coordinates = new Coordinate[] {
+                new Coordinate(1, 2, 0),
+                new Coordinate(3, 4, 0),
+                new Coordinate(5, 6, 0),
+        };
+
+        // Get the coordinates into a double array
+        List<Double[]> list = S100ExchangeSetUtils.coordinatesToArrayList(coordinates);
+
+        // Make sure it seems OK
+        assertNotNull(list);
+        assertEquals(1, list.get(0)[0]);
+        assertEquals(2, list.get(0)[1]);
+        assertEquals(3, list.get(1)[0]);
+        assertEquals(4, list.get(1)[1]);
+        assertEquals(5, list.get(2)[0]);
+        assertEquals(6, list.get(2)[1]);
+    }
+
+    /**
+     * Test that we can correctly convert an array of JTS coordinates into a
+     * GML Position List.
+     */
+    @Test
+    void testCoordinatesToGmlPosList() {
+        // Create a test coordinates array
+        Coordinate[] coordinates = new Coordinate[] {
+                new Coordinate(1, 2, 0),
+                new Coordinate(3, 4, 0),
+                new Coordinate(5, 6, 0),
+        };
+
+        // Get the coordinates into a double array
+        PosList posList = S100ExchangeSetUtils.coordinatesToGmlPosList(coordinates);
+
+        // Make sure it seems OK
+        assertNotNull(posList);
+        assertNotNull(posList.getValue());
+        assertEquals(1, posList.getValue()[0]);
+        assertEquals(2, posList.getValue()[1]);
+        assertEquals(3, posList.getValue()[2]);
+        assertEquals(4, posList.getValue()[3]);
+        assertEquals(5, posList.getValue()[4]);
+        assertEquals(6, posList.getValue()[5]);
     }
 }

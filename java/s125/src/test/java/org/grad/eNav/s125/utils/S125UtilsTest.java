@@ -16,18 +16,18 @@
 
 package org.grad.eNav.s125.utils;
 
-import _int.iho.s125.s100.gml.base._5_0.*;
-import _int.iho.s125.s100.gml.base._5_0.impl.DataSetIdentificationTypeImpl;
-import _int.iho.s125.s100.gml.base._5_0.impl.PointPropertyImpl;
-import _int.iho.s125.s100.gml.base._5_0.impl.PointTypeImpl;
-import _int.iho.s125.s100.gml.profiles._5_0.AbstractGMLType;
-import _int.iho.s125.s100.gml.profiles._5_0.BoundingShapeType;
-import _int.iho.s125.s100.gml.profiles._5_0.EnvelopeType;
-import _int.iho.s125.s100.gml.profiles._5_0.Pos;
-import _int.iho.s125.s100.gml.profiles._5_0.impl.BoundingShapeTypeImpl;
-import _int.iho.s125.s100.gml.profiles._5_0.impl.EnvelopeTypeImpl;
-import _int.iho.s125.s100.gml.profiles._5_0.impl.PosImpl;
-import _int.iho.s125.s100.gml.profiles._5_0.impl.ReferenceTypeImpl;
+import _int.iho.s125.s100.gml.base._5_2.*;
+import _int.iho.s125.s100.gml.base._5_2.impl.DataSetIdentificationTypeImpl;
+import _int.iho.s125.s100.gml.base._5_2.impl.PointPropertyImpl;
+import _int.iho.s125.s100.gml.base._5_2.impl.PointTypeImpl;
+import _int.iho.s125.s100.gml.profiles._5_2.AbstractGMLType;
+import _int.iho.s125.s100.gml.profiles._5_2.BoundingShapeType;
+import _int.iho.s125.s100.gml.profiles._5_2.EnvelopeType;
+import _int.iho.s125.s100.gml.profiles._5_2.Pos;
+import _int.iho.s125.s100.gml.profiles._5_2.impl.BoundingShapeTypeImpl;
+import _int.iho.s125.s100.gml.profiles._5_2.impl.EnvelopeTypeImpl;
+import _int.iho.s125.s100.gml.profiles._5_2.impl.PosImpl;
+import _int.iho.s125.s100.gml.profiles._5_2.impl.ReferenceTypeImpl;
 import _int.iho.s125.gml.cs0._1.S100TruncatedDate;
 import _int.iho.s125.gml.cs0._1.*;
 import _int.iho.s125.gml.cs0._1.impl.*;

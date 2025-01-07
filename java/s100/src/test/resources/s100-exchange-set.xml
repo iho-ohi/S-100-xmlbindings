@@ -116,31 +116,11 @@
             <ns15:dataCoverage>
                 <ns15:boundingPolygon>
                     <ns2:polygon>
-                        <ns9:Polygon srsDimension="4326">
+                        <ns9:Polygon>
                             <ns9:exterior>
-<ns9:AbstractRing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns9:RingType" aggregationType="sequence">
-    <ns9:curveMember>
-        <ns9:AbstractCurve xsi:type="ns9:CurveType">
-            <ns9:segments>
-                <ns9:LineStringSegment>
-                    <ns9:posList>-10.0000000 -10.0000000</ns9:posList>
-                </ns9:LineStringSegment>
-                <ns9:LineStringSegment>
-                    <ns9:posList>-11.0000000 10.0000000</ns9:posList>
-                </ns9:LineStringSegment>
-                <ns9:LineStringSegment>
-                    <ns9:posList>10.0000000 11.0000000</ns9:posList>
-                </ns9:LineStringSegment>
-                <ns9:LineStringSegment>
-                    <ns9:posList>11.0000000 -11.0000000</ns9:posList>
-                </ns9:LineStringSegment>
-                <ns9:LineStringSegment>
-                    <ns9:posList>-10.0000000 -10.0000000</ns9:posList>
-                </ns9:LineStringSegment>
-            </ns9:segments>
-        </ns9:AbstractCurve>
-    </ns9:curveMember>
-</ns9:AbstractRing>
+<ns9:LinearRing>
+    <ns9:posList>-10.0000000 -10.0000000 -11.0000000 10.0000000 10.0000000 11.0000000 11.0000000 -11.0000000 -10.0000000 -10.0000000</ns9:posList>
+</ns9:LinearRing>
                             </ns9:exterior>
                         </ns9:Polygon>
                     </ns2:polygon>

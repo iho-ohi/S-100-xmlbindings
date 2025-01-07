@@ -44,7 +44,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.*;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * The S-100 Exchange Set Utility Class.
@@ -243,24 +243,10 @@ public class S100ExchangeSetUtils {
             final GMObjectPropertyType gmObjectPropertyType = new GMObjectPropertyType();
             final PolygonType polygonType = new PolygonType();
             final AbstractRingPropertyType abstractRingPropertyType = new AbstractRingPropertyType();
-            final RingType ringType = new RingType();
-            final CurvePropertyType curvePropertyType = new CurvePropertyType();
-            final CurveType curveType = new CurveType();
-            final Segments segments = new Segments();
-            final List<JAXBElement<? extends AbstractCurveSegmentType>> lineStringSegmentList = coordinatesToArray(geometry.getCoordinates())
-                    .stream()
-                    .map(S100ExchangeSetUtils::generateCurvePropertySegment)
-                    .map(gmlObjectFactory::createLineStringSegment)
-                    .collect(Collectors.toList());
-            segments.setAbstractCurveSegments(lineStringSegmentList);
-            curveType.setSegments(segments);
-            curvePropertyType.setAbstractCurve(gmlObjectFactory.createAbstractCurve(curveType));
-            ringType.setCurveMembers(Collections.singletonList(curvePropertyType));
-            ringType.setAggregationType(AggregationType.SEQUENCE);
-            abstractRingPropertyType.setAbstractRing(gmlObjectFactory.createAbstractRing(ringType));
+            final LinearRingType linearRingType = generateLinearRing(coordinatesToArray(geometry.getCoordinates()));
+            abstractRingPropertyType.setAbstractRing(gmlObjectFactory.createLinearRing(linearRingType));
             polygonType.setExterior(abstractRingPropertyType);
-            polygonType.setSrsDimension(BigInteger.valueOf(geometry.getSRID()));
-            gmObjectPropertyType.setAbstractGeometry(new net.opengis.gml._3.ObjectFactory().createPolygon(polygonType));
+            gmObjectPropertyType.setAbstractGeometry(gmlObjectFactory.createPolygon(polygonType));
             boundingPolygonType.setPolygons(Collections.singletonList(gmObjectPropertyType));
             dataCoverage.setBoundingPolygon(boundingPolygonType);
 
@@ -364,7 +350,7 @@ public class S100ExchangeSetUtils {
      * @param coords    The coordinates of the element to be generated
      * @return The populated point property
      */
-    protected static PolygonPatchType generateSurfacePropertyPatch(Double[] coords) {
+    protected static PolygonPatchType generatePolygonPatch(Double[] coords) {
         // Create an OpenGIS GML factory
         net.opengis.gml._3.ObjectFactory opengisGMLFactory = new net.opengis.gml._3.ObjectFactory();
 
@@ -393,17 +379,17 @@ public class S100ExchangeSetUtils {
      * @param coords    The coordinates of the element to be generated
      * @return The populated point property
      */
-    protected static LineStringSegmentType generateCurvePropertySegment(Double[] coords) {
+    protected static LinearRingType generateLinearRing(Double[] coords) {
         // Generate the elements
-        LineStringSegmentType lineStringSegmentType = new LineStringSegmentType();
+        LinearRingType linearRingType = new LinearRingType();
         PosList posList = new PosList();
 
         // Populate with the geometry data
         posList.setValue(coords);
-        lineStringSegmentType.setPosList(posList);
+        linearRingType.setPosList(posList);
 
         // And return the output
-        return lineStringSegmentType;
+        return linearRingType;
     }
 
     /**
@@ -413,7 +399,24 @@ public class S100ExchangeSetUtils {
      * @param coordinates the provided coordinates
      * @return the respective list of coordinate values arrays
      */
-    protected static List<Double[]> coordinatesToArray(Coordinate[] coordinates) {
+    protected static Double[] coordinatesToArray(Coordinate[] coordinates) {
+        // Translate the coordinate (X,Y) to a simple list of doubles
+        return Optional.ofNullable(coordinates)
+                .map(Arrays::asList)
+                .orElse(Collections.emptyList())
+                .stream()
+                .flatMap(c -> Stream.of(c.getX(), c.getY()))
+                .toArray(Double[]::new);
+    }
+
+    /**
+     * A simple utility function that receives JTS geometry coordinates and
+     * constructs a list of the coordinate values arrays.
+     *
+     * @param coordinates the provided coordinates
+     * @return the respective list of coordinate values arrays
+     */
+    protected static List<Double[]> coordinatesToArrayList(Coordinate[] coordinates) {
         // Translate the coordinates to a simple list of doubles (Y, X)
         return Optional.ofNullable(coordinates)
                 .map(Arrays::asList)
@@ -421,6 +424,29 @@ public class S100ExchangeSetUtils {
                 .stream()
                 .map(c -> new Double[]{c.getX(), c.getY()})
                 .toList();
+    }
+
+    /**
+     * A simple utility function that receives JTS geometry coordinates and
+     * constructs a position list object.
+     *
+     * @param coordinates the provided coordinates
+     * @return the respective position list
+     */
+    protected static PosList coordinatesToGmlPosList(Coordinate[] coordinates) {
+        // Translate the coordinates to a simple list of doubles (Y, X)
+        List<Double> coords = Optional.ofNullable(coordinates)
+                .map(Arrays::asList)
+                .orElse(Collections.emptyList())
+                .stream()
+                .map(c -> Arrays.asList(c.getX(), c.getY()))
+                .flatMap(List::stream).toList();
+
+        // Then create the list and return
+        PosList posList = new PosList();
+        posList.setValue(coords.toArray(Double[]::new));
+        posList.setCount(BigInteger.valueOf(posList.getValue().length));
+        return posList;
     }
 
 }

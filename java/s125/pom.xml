@@ -6,7 +6,7 @@
 
     <groupId>org.grad.eNav</groupId>
     <artifactId>S125</artifactId>
-    <version>0.5.70</version>
+    <version>0.5.71</version>
 
     <properties>
         <maven.min.version>3.0.0</maven.min.version>
@@ -204,7 +204,7 @@
         <dependency>
             <groupId>org.grad.eNav</groupId>
             <artifactId>S100Catalogue</artifactId>
-            <version>0.5.20</version>
+            <version>0.5.21</version>
         </dependency>
 
     </dependencies>
