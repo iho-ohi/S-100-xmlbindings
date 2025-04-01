@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:S100="http://www.iho.int/s100gml/5.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns="http://www.iho.int/S-201/gml/cs0/1.0" targetNamespace="http://www.iho.int/S-201/gml/cs0/1.0" elementFormDefault="qualified" version="2.0.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:S100="http://www.iho.int/s100gml/5.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns="http://www.iho.int/S-201/gml/cs0/2.0" targetNamespace="http://www.iho.int/S-201/gml/cs0/2.0" elementFormDefault="qualified" version="2.0.0">
     <!-- ========================================================================================== -->
     <!-- S100 XML/GML Schema for S-201                                                              -->
     <!-- ========================================================================================== -->
@@ -118,22 +118,22 @@
     </xs:simpleType>
     <xs:simpleType name="ChangeTypesType">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Advanced notice of changes ">
+            <xs:enumeration value="Advanced notice of changes">
                 <xs:annotation>
                     <xs:documentation>1 : -</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Discrepancy ">
+            <xs:enumeration value="Discrepancy">
                 <xs:annotation>
                     <xs:documentation>2 : -</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Proposed changes ">
+            <xs:enumeration value="Proposed changes">
                 <xs:annotation>
                     <xs:documentation>3 : -</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Temporary changes ">
+            <xs:enumeration value="Temporary changes">
                 <xs:annotation>
                     <xs:documentation>4 : -</xs:documentation>
                 </xs:annotation>
@@ -5763,9 +5763,21 @@
                             <xs:documentation>The sequence of times occupied by intervals of light/sound and eclipse/silence for all light characteristics or sound signals.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="candela" type="xs:double" minOccurs="0" maxOccurs="1">
+                    <xs:element name="effectiveIntensity" type="xs:double" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
-                            <xs:documentation>-</xs:documentation>
+                            <xs:documentation>
+                                The luminous intensity of a fictitious juxtaposed steady-burning point light source that would appear to exhibit a luminosity equal to that of the rhythmic point light source it describes.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="peakIntensity" type="xs:double" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Omnidirectional light: the intensity is defined as the 10th percentile of the intensity measured around the entire light at an elevation of Y=0°.
+                                Directional light without a required boundary: the intensity at the optical centroid axis of the light.
+                                Sector intensity: the intensity is defined as the 10th percentile of the intensity measured within the Sector Width at an elevation of Y=0°.
+                                Rotating optic: This is the peak intensity of the individual beams when the optic is not rotating.
+                            </xs:documentation>
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
@@ -6375,7 +6387,7 @@
                             <xs:documentation>The condition of an object at a given instant in time.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="broadcastBy" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="broadcasts" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation/>
                         </xs:annotation>
@@ -6599,7 +6611,7 @@
             <xs:documentation>An Automatic Identification System (AIS) message 21 transmitted from an AIS station to simulate on navigation systems an Aid to Navigation which does not physically exist.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="EquipmentType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="estimatedRangeOfTransmission" type="xs:double" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -6621,7 +6633,7 @@
                             <xs:documentation>A purpose of a virtual AIS Aid to Navigation.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="broadcasts" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded">
+                    <xs:element name="broadcastBy" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation/>
                         </xs:annotation>
@@ -6670,7 +6682,7 @@
                             <xs:documentation>A purpose of a virtual AIS Aid to Navigation.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="broadcasts" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded">
+                    <xs:element name="broadcastBy" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation/>
                         </xs:annotation>
@@ -6719,7 +6731,7 @@
                             <xs:documentation>A purpose of a virtual AIS Aid to Navigation.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="broadcasts" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded">
+                    <xs:element name="broadcastBy" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation/>
                         </xs:annotation>
