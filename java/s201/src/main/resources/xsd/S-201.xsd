@@ -5433,11 +5433,16 @@
                             <xs:documentation>Identification code as specified in predefined system. Also called identification number.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-<!--                    <xs:element name="information" type="informationType" minOccurs="0" maxOccurs="unbounded">-->
-<!--                        <xs:annotation>-->
-<!--                            <xs:documentation>Textual information about the feature. The information may be provided as a string of text or as a file name of a single external text file that contains the text.</xs:documentation>-->
-<!--                        </xs:annotation>-->
-<!--                    </xs:element>-->
+                    <xs:element name="interoperabilityIdentifier" type="xs:anyURI" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>	A common unique identifier for entities which describe a single real-world feature, and which is used to identify instances of the feature in end-user systems where the feature may be included in multiple data product types.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="information" type="informationType" minOccurs="0" maxOccurs="unbounded">
+                        <xs:annotation>
+                            <xs:documentation>Textual information about the feature. The information may be provided as a string of text or as a file name of a single external text file that contains the text.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="featureName" type="featureNameType" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation>Provides the name of an entity, defines the national language of the name, and provides the option to display the name at various system display settings.</xs:documentation>
@@ -6925,17 +6930,17 @@
             <xs:documentation>A distinctive structure on or off a coast exhibiting a major light designed to serve as an aid to navigation.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="StructureObjectType">
-                <xs:sequence>
-                    <xs:element name="geometry" maxOccurs="unbounded">
-                        <xs:complexType>
-                            <xs:choice>
-                                <xs:element ref="S100:pointProperty"/>
-                                <xs:element ref="S100:surfaceProperty"/>
-                            </xs:choice>
-                        </xs:complexType>
-                    </xs:element>
-                </xs:sequence>
+            <xs:extension base="LandmarkType">
+<!--                <xs:sequence>-->
+<!--                    <xs:element name="geometry" maxOccurs="unbounded">-->
+<!--                        <xs:complexType>-->
+<!--                            <xs:choice>-->
+<!--                                <xs:element ref="S100:pointProperty"/>-->
+<!--                                <xs:element ref="S100:surfaceProperty"/>-->
+<!--                            </xs:choice>-->
+<!--                        </xs:complexType>-->
+<!--                    </xs:element>-->
+<!--                </xs:sequence>-->
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -7627,7 +7632,7 @@
             <xs:documentation>A characteristic shape secured at the top of a buoy or beacon to aid in its identification. (IHO Dictionary, S-32, 5th Edition, 5548)</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="EquipmentType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="colour" type="colourType" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
@@ -7762,7 +7767,7 @@
             <xs:documentation>-</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="EquipmentType">
+            <xs:extension base="S100:AbstractFeatureType">
                 <xs:sequence>
                     <xs:element name="markingAton" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded">
                         <xs:annotation>

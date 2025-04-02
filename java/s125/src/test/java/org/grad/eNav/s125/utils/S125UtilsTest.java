@@ -16,21 +16,21 @@
 
 package org.grad.eNav.s125.utils;
 
-import _int.iho.s125.s100.gml.base._5_2.*;
-import _int.iho.s125.s100.gml.base._5_2.impl.DataSetIdentificationTypeImpl;
-import _int.iho.s125.s100.gml.base._5_2.impl.PointPropertyImpl;
-import _int.iho.s125.s100.gml.base._5_2.impl.PointTypeImpl;
-import _int.iho.s125.s100.gml.profiles._5_2.AbstractGMLType;
-import _int.iho.s125.s100.gml.profiles._5_2.BoundingShapeType;
-import _int.iho.s125.s100.gml.profiles._5_2.EnvelopeType;
-import _int.iho.s125.s100.gml.profiles._5_2.Pos;
-import _int.iho.s125.s100.gml.profiles._5_2.impl.BoundingShapeTypeImpl;
-import _int.iho.s125.s100.gml.profiles._5_2.impl.EnvelopeTypeImpl;
-import _int.iho.s125.s100.gml.profiles._5_2.impl.PosImpl;
-import _int.iho.s125.s100.gml.profiles._5_2.impl.ReferenceTypeImpl;
-import _int.iho.s125.gml.cs0._1.S100TruncatedDate;
-import _int.iho.s125.gml.cs0._1.*;
-import _int.iho.s125.gml.cs0._1.impl.*;
+import _int.iho.s_125.s_100.gml.base._5_2.*;
+import _int.iho.s_125.s_100.gml.base._5_2.impl.DataSetIdentificationTypeImpl;
+import _int.iho.s_125.s_100.gml.base._5_2.impl.PointPropertyImpl;
+import _int.iho.s_125.s_100.gml.base._5_2.impl.PointTypeImpl;
+import _int.iho.s_125.s_100.gml.profiles._5_2.AbstractGMLType;
+import _int.iho.s_125.s_100.gml.profiles._5_2.BoundingShapeType;
+import _int.iho.s_125.s_100.gml.profiles._5_2.EnvelopeType;
+import _int.iho.s_125.s_100.gml.profiles._5_2.Pos;
+import _int.iho.s_125.s_100.gml.profiles._5_2.impl.BoundingShapeTypeImpl;
+import _int.iho.s_125.s_100.gml.profiles._5_2.impl.EnvelopeTypeImpl;
+import _int.iho.s_125.s_100.gml.profiles._5_2.impl.PosImpl;
+import _int.iho.s_125.s_100.gml.profiles._5_2.impl.ReferenceTypeImpl;
+import _int.iho.s_125.gml.cs0._1.S100TruncatedDate;
+import _int.iho.s_125.gml.cs0._1.*;
+import _int.iho.s_125.gml.cs0._1.impl.*;
 import jakarta.xml.bind.JAXBException;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.BeforeEach;
@@ -113,15 +113,17 @@ class S125UtilsTest {
         featureNameType2.setDisplayName(Boolean.FALSE);
         vaton.getFeatureNames().add(featureNameType1);
         vaton.getFeatureNames().add(featureNameType2);
-        vaton.setIdCode("urn:mrn:grad:aton:test:corkhole");
-        vaton.setEstimatedRangeOfTransmission(BigInteger.valueOf(20L));
-        vaton.setMMSICode(BigInteger.valueOf(992359598L));
-        S100TruncatedDate s100TruncatedDateStart = new S100TruncatedDateImpl();
+        vaton.setIDCode("urn:mrn:grad:aton:test:corkhole");
+        vaton.setEstimatedRangeOfTransmission(20.0);
+        vaton.setMMSICode("992359598");
+        final S100TruncatedDate s100TruncatedDateStart = new S100TruncatedDateImpl();
         s100TruncatedDateStart.setDate(LocalDate.parse("2001-01-01", dateFormat));
-        vaton.setDateStart(s100TruncatedDateStart);
-        S100TruncatedDate s100TruncatedDateStop = new S100TruncatedDateImpl();
+        final S100TruncatedDate s100TruncatedDateStop = new S100TruncatedDateImpl();
         s100TruncatedDateStop.setDate(LocalDate.parse("2099-01-01", dateFormat));
-        vaton.setDateEnd(s100TruncatedDateStop);
+        final FixedDateRangeTypeImpl fixedDateRange = new FixedDateRangeTypeImpl();
+        fixedDateRange.setDateStart(s100TruncatedDateStart);
+        fixedDateRange.setDateEnd(s100TruncatedDateStop);
+        vaton.setFixedDateRange(fixedDateRange);
         vaton.getStatuses().add(StatusType.CONFIRMED);
         vaton.getSeasonalActionRequireds().add("none");
         vaton.setVirtualAISAidToNavigationType(VirtualAISAidToNavigationTypeType.SPECIAL_PURPOSE);
@@ -143,17 +145,17 @@ class S125UtilsTest {
         vaton.getGeometries().add(geometry);
 
         // Set the AtoN Status
-        AtoNStatusInformation atonStatusInformation = new AtoNStatusInformationImpl();
+        AtonStatusInformation atonStatusInformation = new AtonStatusInformationImpl();
         atonStatusInformation.setId("ID002");
-        atonStatusInformation.setChangeTypes(ChangeTypesType.ADVANCE_NOTICE_OF_CHANGES);
+        atonStatusInformation.setChangeTypes(ChangeTypesType.ADVANCED_NOTICE_OF_CHANGES);
         ChangeDetailsType changeDetailsType = new ChangeDetailsTypeImpl();
-        changeDetailsType.setRadioAidsChange(RadioAidsChangeType.AIS_TRANSMITTER_OPERATING_PROPERLY);
+        changeDetailsType.setElectronicAtonChange(ElectronicAtonChangeType.AIS_TRANSMITTER_OPERATING_PROPERLY);
         atonStatusInformation.setChangeDetails(changeDetailsType);
         ReferenceTypeImpl atonStatusRef = new ReferenceTypeImpl();
         atonStatusRef.setHref(this.vaton.getId());
         atonStatusRef.setRole("association");
         atonStatusRef.setArcrole("urn:IALA:S125:roles:association");
-        vaton.setAtonStatus(atonStatusRef);
+        vaton.setStatuspart(atonStatusRef);
 
         // Now package everything back to the dataset
         S125Utils.addDatasetMembers(dataset, Collections.singletonList(vaton));
@@ -271,8 +273,14 @@ class S125UtilsTest {
 
         // Assert the S-125 AidsToNavigation feature information is correct
         assertEquals(datasetMember.getMMSICode(), resultMember.getMMSICode());
-        //assertEquals(datasetMember.getAtonNumber(), resultMember.getAtonNumber());
-        assertEquals(datasetMember.getIdCode(), resultMember.getIdCode());
+        assertEquals(datasetMember.getIDCode(), resultMember.getIDCode());
+        assertNotNull(resultMember.getFixedDateRange());
+        assertNotNull(resultMember.getFixedDateRange().getDateStart());
+        assertNotNull(resultMember.getFixedDateRange().getDateStart().getDate());
+        assertEquals(datasetMember.getFixedDateRange().getDateStart().getDate(), resultMember.getFixedDateRange().getDateStart().getDate());
+        assertNotNull(resultMember.getFixedDateRange().getDateEnd());
+        assertNotNull(resultMember.getFixedDateRange().getDateEnd().getDate());
+        assertEquals(datasetMember.getFixedDateRange().getDateStart().getDate(), resultMember.getFixedDateRange().getDateStart().getDate());
         assertNotNull(resultMember.getFeatureNames());
         assertEquals(datasetMember.getFeatureNames().size(), resultMember.getFeatureNames().size());
         assertEquals(datasetMember.getFeatureNames().getFirst().getName(), resultMember.getFeatureNames().getFirst().getName());

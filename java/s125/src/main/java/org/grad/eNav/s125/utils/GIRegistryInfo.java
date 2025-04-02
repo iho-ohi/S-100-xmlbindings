@@ -53,7 +53,7 @@ public class GIRegistryInfo {
     /**
      * The Data Product Version as per the IHO GI Registry.
      */
-    public static final String DATA_PRODUCT_VERSION = "0.0.2";
+    public static final String DATA_PRODUCT_VERSION = "1.0.0";
 
     /**
      * The Data Product Version as per the IHO GI Registry.
@@ -63,7 +63,7 @@ public class GIRegistryInfo {
     /**
      * The Data Product Date as per the IHO GI Registry.
      */
-    public static final LocalDate DATA_PRODUCT_DATE = LocalDate.of(2022, 4, 13);
+    public static final LocalDate DATA_PRODUCT_DATE = LocalDate.of(2025, 4, 2);
 
     /**
      * Constructs and return the data product specification of this package.
