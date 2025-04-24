@@ -5433,11 +5433,11 @@
                             <xs:documentation>Identification code as specified in predefined system. Also called identification number.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-<!--                    <xs:element name="information" type="informationType" minOccurs="0" maxOccurs="unbounded">-->
-<!--                        <xs:annotation>-->
-<!--                            <xs:documentation>Textual information about the feature. The information may be provided as a string of text or as a file name of a single external text file that contains the text.</xs:documentation>-->
-<!--                        </xs:annotation>-->
-<!--                    </xs:element>-->
+                    <xs:element name="information" type="informationType" minOccurs="0" maxOccurs="unbounded">
+                        <xs:annotation>
+                            <xs:documentation>Textual information about the feature. The information may be provided as a string of text or as a file name of a single external text file that contains the text.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="featureName" type="featureNameType" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation>Provides the name of an entity, defines the national language of the name, and provides the option to display the name at various system display settings.</xs:documentation>
