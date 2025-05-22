@@ -58,7 +58,6 @@
             </ns4:fixedDateRange>
             <ns4:SeasonalActionRequired>none</ns4:SeasonalActionRequired>
             <ns4:Statuspart ns3:href="ID001" ns3:role="association" ns3:arcrole="urn:IALA:S201:roles:association"/>
-            <ns4:estimatedRangeOfTransmission>20.0</ns4:estimatedRangeOfTransmission>
             <ns4:mMSICode>992359598</ns4:mMSICode>
             <ns4:status>Confirmed</ns4:status>
             <ns4:virtualAISAidToNavigationType>Special Purpose</ns4:virtualAISAidToNavigationType>

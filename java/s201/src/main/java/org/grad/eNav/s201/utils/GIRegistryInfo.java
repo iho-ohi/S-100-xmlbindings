@@ -63,7 +63,7 @@ public class GIRegistryInfo {
     /**
      * The Data Product Date as per the IHO GI Registry.
      */
-    public static final LocalDate DATA_PRODUCT_DATE = LocalDate.of(2025, 4, 4);
+    public static final LocalDate DATA_PRODUCT_DATE = LocalDate.of(2025, 5, 1);
 
     /**
      * Constructs and return the data product specification of this package.

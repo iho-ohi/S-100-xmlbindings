@@ -282,7 +282,7 @@ public class S201Utils {
                         members.getSiloTank().add(member);
                 case LighthouseImpl lighthouse ->
                         members.getLighthouse().add(member);
-                case LandmarkImpl landmarkType ->
+                case LandmarkTypeImpl landmarkType ->
                         members.getLandmark().add(member);
                 case LightFloatImpl lightFloat ->
                         members.getLightFloat().add(member);
