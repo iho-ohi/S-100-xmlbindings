@@ -6093,6 +6093,11 @@
                             <xs:documentation>Describes the characteristics of a light sector.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="multiplicityOfFeatures" type="multiplicityOfFeaturesType" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>The number of features of identical character that exist as a colocated group.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="geometry" maxOccurs="unbounded">
                         <xs:complexType>
                             <xs:choice>
@@ -6613,7 +6618,7 @@
                             <xs:documentation>The luminous range of a light in a homogenous atmosphere in which the meteorological visibility is 10 sea miles.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="manufactorer" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="manufacturer" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation>-</xs:documentation>
                         </xs:annotation>
@@ -6754,6 +6759,11 @@
                             <xs:documentation>The condition of an object at a given instant in time.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="manufacturer" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>-</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="geometry" maxOccurs="unbounded">
                         <xs:complexType>
                             <xs:choice>
@@ -6771,7 +6781,7 @@
             <xs:documentation>An isolated danger beacon is a beacon erected on an isolated danger of limited extent, which has navigable water all around it.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBeaconType">
                 <xs:sequence>
                     <xs:element name="geometry" maxOccurs="unbounded">
                         <xs:complexType>
