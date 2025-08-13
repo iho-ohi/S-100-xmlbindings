@@ -60,9 +60,9 @@ class S100ExchangeSetUtilsTest {
 
     // Fixed Variables
     private String isoType = "ISO 19103:2015";
-    private DateTimeFormatter timeFormat = DateTimeFormatter.ISO_TIME;
+    private DateTimeFormatter timeFormat = DateTimeFormatter.ISO_OFFSET_TIME;
     private DateTimeFormatter dateFormat = DateTimeFormatter.ISO_DATE;
-    private DateTimeFormatter dateTimeFormat = DateTimeFormatter.ISO_DATE_TIME;
+    private DateTimeFormatter dateTimeFormat = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 
     /**
      * Common setup for all the tests.
@@ -130,7 +130,7 @@ class S100ExchangeSetUtilsTest {
         // Initialise the Dataset
         this.s100ExchangeCatalogue = this.s100ExchangeCatalogueBuilder
                 .setIdentifier("Test Exchange Set")
-                .setDateTime(LocalDateTime.parse("2023-01-01T00:00:00.000", this.dateTimeFormat))
+                .setDateTime(LocalDateTime.parse("2023-01-01T00:00:00Z", this.dateTimeFormat))
                 .setDataServerIdentifier("2d7c8116-75a9-4fb8-b1b3-7a698d416b97")
                 .setOrganization("GRAD")
                 .setElectronicMailAddresses(Collections.singletonList("test@gla-rad.org"))
@@ -161,7 +161,7 @@ class S100ExchangeSetUtilsTest {
                         .setUpdateNumber(BigInteger.ZERO)
                         .setUpdateApplicationDate(LocalDate.parse("2023-01-01", this.dateFormat))
                         .setIssueDate(LocalDate.parse("2023-01-02", this.dateFormat))
-                        .setIssueTime(LocalTime.parse("00:00:00", this.timeFormat))
+                        .setIssueTime(LocalTime.parse("00:00:00Z", this.timeFormat))
                         .setProductSpecification(null)
                         .setProducingAgency("producingAgency")
                         .setProducingAgencyRole(RoleCode.ORIGINATOR)

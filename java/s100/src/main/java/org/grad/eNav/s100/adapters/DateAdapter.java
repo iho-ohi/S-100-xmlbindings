@@ -47,8 +47,8 @@ public class DateAdapter extends XmlAdapter<String, LocalDate> {
      */
     @Override
     public String marshal(LocalDate date) {
-        synchronized (S100_DATE_FORMATTER) {
-            return S100_DATE_FORMATTER.format(date);
+        synchronized (DateTimeFormatter.ISO_DATE) {
+            return DateTimeFormatter.ISO_DATE.format(date);
         }
     }
 
@@ -60,8 +60,8 @@ public class DateAdapter extends XmlAdapter<String, LocalDate> {
      */
     @Override
     public LocalDate unmarshal(String xml) {
-        synchronized (S100_DATE_FORMATTER) {
-            return LocalDate.parse(xml, S100_DATE_FORMATTER);
+        synchronized (DateTimeFormatter.ISO_DATE) {
+            return LocalDate.parse(xml, DateTimeFormatter.ISO_DATE);
         }
     }
 
