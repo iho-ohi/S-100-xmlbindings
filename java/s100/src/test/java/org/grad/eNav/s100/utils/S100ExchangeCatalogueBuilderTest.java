@@ -42,9 +42,9 @@ class S100ExchangeCatalogueBuilderTest {
     private S100DatasetDiscoveryMetadataBuilder s100DatasetDiscoveryMetadataBuilder;
 
     // Fixed Variables
-    private DateTimeFormatter timeFormat = DateTimeFormatter.ISO_TIME;
+    private DateTimeFormatter timeFormat = DateTimeFormatter.ISO_OFFSET_TIME;
     private DateTimeFormatter dateFormat = DateTimeFormatter.ISO_DATE;
-    private DateTimeFormatter dateTimeFormat = DateTimeFormatter.ISO_DATE_TIME;
+    private DateTimeFormatter dateTimeFormat = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 
     /**
      * Common setup for all the tests.
@@ -101,7 +101,7 @@ class S100ExchangeCatalogueBuilderTest {
     void testSetters() throws JAXBException, CertificateEncodingException {
         // Perform the setting operations
         this.s100ExchangeCatalogueBuilder.setIdentifier("identifier")
-                .setDateTime(LocalDateTime.parse("2023-01-01T00:00:00.000", this.dateTimeFormat))
+                .setDateTime(LocalDateTime.parse("2023-01-01T00:00:00Z", this.dateTimeFormat))
                 .setDataServerIdentifier("dataServerIdentifier")
                 .setOrganization("organisation")
                 .setElectronicMailAddresses(Collections.singletonList("test@test.com"))
@@ -158,7 +158,7 @@ class S100ExchangeCatalogueBuilderTest {
         // Perform the setting operations
         S100ExchangeCatalogue exchangeCatalogue = this.s100ExchangeCatalogueBuilder
                 .setIdentifier("identifier")
-                .setDateTime(LocalDateTime.parse("2023-01-01T00:00:00.000", this.dateTimeFormat))
+                .setDateTime(LocalDateTime.parse("2023-01-01T00:00:00Z", this.dateTimeFormat))
                 .setDataServerIdentifier("dataServerIdentifier")
                 .setOrganization("organisation")
                 .setElectronicMailAddresses(Collections.singletonList("test@test.com"))
@@ -181,7 +181,7 @@ class S100ExchangeCatalogueBuilderTest {
         // Assert that the building took place correctly
         assertNotNull(exchangeCatalogue);
         assertEquals("identifier", exchangeCatalogue.getIdentifier().getIdentifier());
-        assertEquals(LocalDateTime.parse("2023-01-01T00:00:00.000", this.dateTimeFormat), exchangeCatalogue.getIdentifier().getDateTime());
+        assertEquals(LocalDateTime.parse("2023-01-01T00:00:00Z", this.dateTimeFormat), exchangeCatalogue.getIdentifier().getDateTime());
         assertEquals("dataServerIdentifier", exchangeCatalogue.getDataServerIdentifier());
         assertNotNull(exchangeCatalogue.getContact().getOrganization());
         assertNotNull(exchangeCatalogue.getContact().getOrganization().getCharacterString());

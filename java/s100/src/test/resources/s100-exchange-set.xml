@@ -2,7 +2,7 @@
 <ns15:S100_ExchangeCatalogue xmlns:ns15="http://www.iho.int/s100/xc/5.2" xmlns:ns1="http://standards.iso.org/iso/19115/-3/gco/1.0" xmlns:ns10="http://www.isotc211.org/2005/gco" xmlns:ns11="http://www.isotc211.org/2005/gmd" xmlns:ns12="http://standards.iso.org/iso/19115/-3/mco/1.0" xmlns:ns13="http://www.isotc211.org/2005/gts" xmlns:ns14="http://standards.iso.org/iso/19115/-3/mri/1.0" xmlns:ns16="http://www.iho.int/s100/se/5.2" xmlns:ns2="http://standards.iso.org/iso/19115/-3/gex/1.0" xmlns:ns3="http://standards.iso.org/iso/19115/-3/mmi/1.0" xmlns:ns4="http://standards.iso.org/iso/19115/-3/mcc/1.0" xmlns:ns5="http://standards.iso.org/iso/19115/-3/cit/2.0" xmlns:ns6="http://standards.iso.org/iso/19115/-3/cit/1.0" xmlns:ns7="http://www.w3.org/1999/xlink" xmlns:ns8="http://standards.iso.org/iso/19115/-3/lan/1.0" xmlns:ns9="http://www.opengis.net/gml/3.2">
     <ns15:identifier>
         <ns15:identifier>Test Exchange Set</ns15:identifier>
-        <ns15:dateTime>20230101T000000</ns15:dateTime>
+        <ns15:dateTime>2023-01-01T00:00:00Z</ns15:dateTime>
     </ns15:identifier>
     <ns15:contact>
         <ns15:organization>
@@ -36,7 +36,7 @@
     </ns15:contact>
     <ns15:productSpecification>
         <ns15:name>S-125</ns15:name>
-        <ns15:date>20221022</ns15:date>
+        <ns15:date>2022-10-22</ns15:date>
         <ns15:productIdentifier>S-125</ns15:productIdentifier>
         <ns15:number>1</ns15:number>
         <ns15:compliancyCategory>category1</ns15:compliancyCategory>
@@ -94,9 +94,9 @@
             </ns15:specificUsage>
             <ns15:editionNumber>1</ns15:editionNumber>
             <ns15:updateNumber>0</ns15:updateNumber>
-            <ns15:updateApplicationDate>20230101</ns15:updateApplicationDate>
-            <ns15:issueDate>20230102</ns15:issueDate>
-            <ns15:issueTime>000000</ns15:issueTime>
+            <ns15:updateApplicationDate>2023-01-01</ns15:updateApplicationDate>
+            <ns15:issueDate>2023-01-02</ns15:issueDate>
+            <ns15:issueTime>00:00:00Z</ns15:issueTime>
             <ns15:producingAgency>
                 <ns5:CI_Responsibility>
                     <ns5:role>
@@ -129,7 +129,7 @@
             <ns15:comment>
                 <ns1:CharacterString>comment</ns1:CharacterString>
             </ns15:comment>
-            <ns15:metadataDateStamp>20230103</ns15:metadataDateStamp>
+            <ns15:metadataDateStamp>2023-01-03</ns15:metadataDateStamp>
             <ns15:replacedData>false</ns15:replacedData>
             <ns15:navigationPurpose>overview</ns15:navigationPurpose>
             <ns15:resourceMaintenance>
@@ -140,7 +140,7 @@
                     <ns3:maintenanceDate>
                         <ns4:Abstract_TypedDate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns5:CI_Date_Type">
                             <ns5:date>
-<ns1:Date>20230104</ns1:Date>
+<ns1:Date>2023-01-04</ns1:Date>
                             </ns5:date>
                         </ns4:Abstract_TypedDate>
                     </ns3:maintenanceDate>

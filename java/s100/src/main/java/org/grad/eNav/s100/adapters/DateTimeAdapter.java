@@ -19,6 +19,7 @@ package org.grad.eNav.s100.adapters;
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 
@@ -54,8 +55,8 @@ public class DateTimeAdapter extends XmlAdapter<String, LocalDateTime> {
      */
     @Override
     public String marshal(LocalDateTime date) {
-        synchronized (S100_DATE_TIME_FORMATTER) {
-            return S100_DATE_TIME_FORMATTER.format(date);
+        synchronized (DateTimeFormatter.ISO_OFFSET_DATE_TIME) {
+            return DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(date.atZone(ZoneOffset.systemDefault()));
         }
     }
 
@@ -67,8 +68,8 @@ public class DateTimeAdapter extends XmlAdapter<String, LocalDateTime> {
      */
     @Override
     public LocalDateTime unmarshal(String xml) {
-        synchronized (S100_DATE_TIME_FORMATTER) {
-            return LocalDateTime.parse(xml, S100_DATE_TIME_FORMATTER);
+        synchronized (DateTimeFormatter.ISO_OFFSET_DATE_TIME) {
+            return LocalDateTime.parse(xml, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
         }
     }
 
