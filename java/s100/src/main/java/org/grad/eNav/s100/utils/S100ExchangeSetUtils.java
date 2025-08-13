@@ -60,13 +60,13 @@ public class S100ExchangeSetUtils {
      * The Language Code namespace/list for use in the language codes.
      */
     public static final String LANGUAGE_NAMESPACE = "ISO 639-2/T";
-    public static final String LANGUAGE_LIST = null;
+    public static final String LANGUAGE_LIST = "https://iho.int/S100/5.0.0/resources/Codelists/cat/codelists.xml#S100_MD_LanguageCode";
 
     /**
      * The Country Code namespace/list for use in the country codes.
      */
     public static final String COUNTRY_NAMESPACE = "ISO 3166-2";
-    public static final String COUNTRY_LIST = null;
+    public static final String COUNTRY_LIST = "https://iho.int/S100/5.0.0/resources/Codelists/cat/codelists.xml#S100_MD_CountryCode";
 
     /**
      * The Character Set Encoding namespace/list for use in the character set encoding codes.

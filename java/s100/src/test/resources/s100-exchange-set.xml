@@ -44,10 +44,10 @@
     <ns15:defaultLocale>
         <ns8:PT_Locale>
             <ns8:language>
-                <ns8:LanguageCode codeListValue="eng" codeSpace="ISO 639-2/T">English</ns8:LanguageCode>
+                <ns8:LanguageCode codeList="https://iho.int/S100/5.0.0/resources/Codelists/cat/codelists.xml#S100_MD_LanguageCode" codeListValue="eng" codeSpace="ISO 639-2/T">English</ns8:LanguageCode>
             </ns8:language>
             <ns8:country>
-                <ns8:CountryCode codeListValue="GBR" codeSpace="ISO 3166-2">United Kingdom</ns8:CountryCode>
+                <ns8:CountryCode codeList="https://iho.int/S100/5.0.0/resources/Codelists/cat/codelists.xml#S100_MD_CountryCode" codeListValue="GBR" codeSpace="ISO 3166-2">United Kingdom</ns8:CountryCode>
             </ns8:country>
             <ns8:characterEncoding>
                 <ns8:MD_CharacterSetCode codeList="http://www.iana.org/assignments/character-sets" codeListValue="UTF-8">UTF-8</ns8:MD_CharacterSetCode>
