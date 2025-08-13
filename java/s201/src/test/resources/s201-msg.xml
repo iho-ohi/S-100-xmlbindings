@@ -14,7 +14,7 @@
         <ns2:applicationProfile>test</ns2:applicationProfile>
         <ns2:datasetFileIdentifier>junit</ns2:datasetFileIdentifier>
         <ns2:datasetTitle>S-201 Cork Hole Test Dataset</ns2:datasetTitle>
-        <ns2:datasetReferenceDate>20010101</ns2:datasetReferenceDate>
+        <ns2:datasetReferenceDate>2001-01-01</ns2:datasetReferenceDate>
         <ns2:datasetLanguage>eng</ns2:datasetLanguage>
         <ns2:datasetAbstract>Test dataset for unit testing</ns2:datasetAbstract>
         <ns2:datasetTopicCategory>oceans</ns2:datasetTopicCategory>
@@ -36,26 +36,26 @@
                 </ns1:Envelope>
             </ns1:boundedBy>
             <ns4:dateEnd>
-                <ns4:date>20990101</ns4:date>
+                <ns4:date>2099-01-01</ns4:date>
             </ns4:dateEnd>
             <ns4:dateStart>
-                <ns4:date>20010101</ns4:date>
+                <ns4:date>2001-01-01</ns4:date>
             </ns4:dateStart>
             <ns4:idCode>urn:mrn:grad:aton:test:corkhole</ns4:idCode>
             <ns4:periodEnd>
-                <ns4:date>20010130</ns4:date>
+                <ns4:date>2001-01-30</ns4:date>
             </ns4:periodEnd>
             <ns4:periodStart>
-                <ns4:date>20010102</ns4:date>
+                <ns4:date>2001-01-02</ns4:date>
             </ns4:periodStart>
-            <ns4:sourceDate>20000101T000000</ns4:sourceDate>
+            <ns4:sourceDate>2000-01-01T00:00:00Z</ns4:sourceDate>
             <ns4:sourceIndication>CHT</ns4:sourceIndication>
             <ns4:pictorialRepresentation>N/A</ns4:pictorialRepresentation>
             <ns4:inspectionFrequency>yearly</ns4:inspectionFrequency>
             <ns4:inspectionRequirements>IALA</ns4:inspectionRequirements>
             <ns4:atoNMaintenanceRecord>urn:mrn:grad:aton:test:corkhole:maintenance:x001</ns4:atoNMaintenanceRecord>
             <ns4:installationDate>
-                <ns4:date>20000101</ns4:date>
+                <ns4:date>2000-01-01</ns4:date>
             </ns4:installationDate>
             <ns4:featureName>
                 <ns4:displayName>true</ns4:displayName>
