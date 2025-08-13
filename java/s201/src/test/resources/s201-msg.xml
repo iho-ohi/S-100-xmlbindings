@@ -14,7 +14,7 @@
         <ns2:applicationProfile>test</ns2:applicationProfile>
         <ns2:datasetFileIdentifier>junit</ns2:datasetFileIdentifier>
         <ns2:datasetTitle>S-201 Cork Hole Test Dataset</ns2:datasetTitle>
-        <ns2:datasetReferenceDate>20010101</ns2:datasetReferenceDate>
+        <ns2:datasetReferenceDate>2001-01-01</ns2:datasetReferenceDate>
         <ns2:datasetLanguage>eng</ns2:datasetLanguage>
         <ns2:datasetAbstract>Test dataset for unit testing</ns2:datasetAbstract>
         <ns2:datasetTopicCategory>oceans</ns2:datasetTopicCategory>
@@ -41,19 +41,19 @@
                 <ns4:language>eng</ns4:language>
                 <ns4:name>Test AtoN for Cork Hole</ns4:name>
             </ns4:featureName>
-            <ns4:sourceDate>20000101</ns4:sourceDate>
+            <ns4:sourceDate>2000-01-01</ns4:sourceDate>
             <ns4:source>CHT</ns4:source>
             <ns4:pictorialRepresentation>N/A</ns4:pictorialRepresentation>
             <ns4:inspectionFrequency>yearly</ns4:inspectionFrequency>
             <ns4:inspectionRequirements>IALA</ns4:inspectionRequirements>
             <ns4:aToNMaintenanceRecord>urn:mrn:grad:aton:test:corkhole:maintenance:x001</ns4:aToNMaintenanceRecord>
-            <ns4:installationDate>20000101</ns4:installationDate>
+            <ns4:installationDate>2000-01-01</ns4:installationDate>
             <ns4:fixedDateRange>
                 <ns4:dateEnd>
-                    <ns4:date>20990101</ns4:date>
+                    <ns4:date>2099-01-01</ns4:date>
                 </ns4:dateEnd>
                 <ns4:dateStart>
-                    <ns4:date>20010101</ns4:date>
+                    <ns4:date>2001-01-01</ns4:date>
                 </ns4:dateStart>
             </ns4:fixedDateRange>
             <ns4:SeasonalActionRequired>none</ns4:SeasonalActionRequired>
