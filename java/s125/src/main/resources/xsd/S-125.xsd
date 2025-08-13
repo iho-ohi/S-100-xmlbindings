@@ -59,12 +59,12 @@
     <!-- ========================================================================================== -->
     <xs:simpleType name="categoryOfInstallationBuoyType">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="catenary anchor leg mooring (CALM)">
+            <xs:enumeration value="Catenary Anchor Leg Mooring">
                 <xs:annotation>
                     <xs:documentation>incorporates a large buoy which remains on the surface at all times and is moored by 4 or more anchors. Mooring hawsers and cargo hoses lead from a turntable on top of the buoy, so that the buoy does not turn as the ship swings to wind and stream.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="catenary anchor leg mooring (CALM)">
+            <xs:enumeration value="Single Buoy Mooring">
                 <xs:annotation>
                     <xs:documentation>a mooring structure used by tankers to load and unload in port approaches or in offshore oil and gas fields. The size of the structure can vary between a large mooring buoy and a manned floating structure. Also known as single point mooring (SPM)</xs:documentation>
                 </xs:annotation>
@@ -1270,21 +1270,6 @@
                     <xs:documentation>A rhythmic light in which the total duration of light in a period is clearly longer than the total duration of darkness and all the eclipses are of equal duration. It may be:  - Single-occulting: An occulting light in which an eclipse is regularly repeated.  - Group-occulting: An occulting light in which a group of two or more eclipses, which are specified in number, is regularly repeated.  - Composite group-occulting: An occulting light in which a sequence of groups of one or more eclipses, which are specified in number, is regularly repeated, and the groups comprise different numbers of eclipses.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="Interrupted Quick Flashing">
-                <xs:annotation>
-                    <xs:documentation>A quick light in which the sequence of flashes is interrupted by regularly repeated eclipses of constant and long duration.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Interrupted Very Quick Flashing">
-                <xs:annotation>
-                    <xs:documentation>A light in which the very rapid alterations of light and darkness are interrupted at regular intervals by eclipses of long duration.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="Interrupted Ultra Quick-Flashing">
-                <xs:annotation>
-                    <xs:documentation>A light in which the ultra quick flashes (160 or more per minute) are interrupted at regular intervals by eclipses of long duration.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="Morse">
                 <xs:annotation>
                     <xs:documentation>A rhythmic light in which appearances of light of two clearly different durations are grouped to represent a character or characters in the Morse code.</xs:documentation>
@@ -1352,7 +1337,37 @@
             </xs:enumeration>
             <xs:enumeration value="Fixed and Alternating Flashing">
                 <xs:annotation>
-                    <xs:documentation>A rhythmic light in which a fixed light is combined with a flashing light of higher luminous intensity and different colour.</xs:documentation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Group-occulting light">
+                <xs:annotation>
+                    <xs:documentation>An occulting light in which a group of two or more eclipses, which are specified in number, is regularly repeated.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Composite group-occulting light">
+                <xs:annotation>
+                    <xs:documentation>An occulting light in which a sequence of groups of one or more eclipses, which are specified in number, is regularly repeated, and the groups comprise different numbers of eclipses.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Group flashing light">
+                <xs:annotation>
+                    <xs:documentation>A flashing light in which a group of flashes, specified in number, is regularly repeated.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Composite group-flashing light">
+                <xs:annotation>
+                    <xs:documentation>A light similar to a group-flashing light except that successive groups in a period have different numbers of flashes.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Group quick light">
+                <xs:annotation>
+                    <xs:documentation> A quick-flashing light in which a group of two or more flashes, which are specified in number, is regularly repeated.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Group very quick light">
+                <xs:annotation>
+                    <xs:documentation>A very quick-flashing light in which a group of two or more flashes, which are specified in number, is regularly repeated.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -3506,6 +3521,11 @@
                     <xs:documentation>Item that is in the process of being modified.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="Experimental">
+                <xs:annotation>
+                    <xs:documentation/>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="Under Removal / Deletion">
                 <xs:annotation>
                     <xs:documentation>Item in the process of being removed or deleted.</xs:documentation>
@@ -3760,6 +3780,41 @@
             <xs:enumeration value="Pink">
                 <xs:annotation>
                     <xs:documentation>Any of a group of colors bluish red to red in hue, of medium to high lightness, and of low to moderate saturation.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Green A">
+                <xs:annotation>
+                    <xs:documentation>-</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Green B">
+                <xs:annotation>
+                    <xs:documentation>-</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="White Temporary">
+                <xs:annotation>
+                    <xs:documentation>-</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Red Temporary">
+                <xs:annotation>
+                    <xs:documentation>-</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Yellow Temporary">
+                <xs:annotation>
+                    <xs:documentation>-</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Green Preferred">
+                <xs:annotation>
+                    <xs:documentation>-</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Green Temporary">
+                <xs:annotation>
+                    <xs:documentation>-</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -6565,7 +6620,7 @@
             <xs:documentation>A cardinal beacon is used in conjunction with the compass to indicate where the mariner may find the best navigable water. It is placed in one of the four quadrants (North, East, South and West), bounded by inter-cardinal bearings from the point marked.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBeaconType">
                 <xs:sequence>
                     <xs:element name="categoryOfCardinalMark" type="categoryOfCardinalMarkType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
