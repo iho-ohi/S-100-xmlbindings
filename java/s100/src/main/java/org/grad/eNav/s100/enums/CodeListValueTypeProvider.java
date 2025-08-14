@@ -69,7 +69,7 @@ public interface CodeListValueTypeProvider {
      */
     default CodeListValueType getCodeListValueType() {
         return S100ExchangeSetUtils.createCodeListValueType(
-                Objects.isNull(this.getList()) ? "http://www.iho.int/S100/5.0.0/resources/Codelists/cat/codelists.xml#S100_MD_LanguageCode" : this.getList(),
+                this.getList(),
                 Objects.isNull(this.getList()) ? this.getSpace() : null,
                 this.getCode(),
                 this.getValue()
