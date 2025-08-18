@@ -7,6 +7,9 @@ This repository provides language bindings for the S-100 standard, making it eas
 
 The S-100 standard, developed by the International Hydrographic Organization (IHO), is the framework for electronic navigational charts, hydrographic data, and other maritime-related geospatial information. These bindings are designed to facilitate integration of S-100 data into modern applications without the complexity of directly handling S-100 specifications.
 
+⚠️ Warning: 
+This repository is not an official IHO document or service. It has been created solely to support collaboration within the S-100 community.
+
 ## Why Use This Repository?
 
 By providing language bindings, this repository simplifies the interaction with S-100 datasets for developers. Whether you're building marine navigation systems, environmental monitoring tools, or GIS applications, these bindings enable:
