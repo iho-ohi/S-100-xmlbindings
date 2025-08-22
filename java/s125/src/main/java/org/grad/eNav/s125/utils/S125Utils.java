@@ -16,15 +16,15 @@
 
 package org.grad.eNav.s125.utils;
 
-import _int.iho.s125.s100.gml.base._5_2.S100SpatialAttributeType;
-import _int.iho.s125.s100.gml.base._5_2.impl.CurvePropertyImpl;
-import _int.iho.s125.s100.gml.base._5_2.impl.PointPropertyImpl;
-import _int.iho.s125.s100.gml.base._5_2.impl.SurfacePropertyImpl;
-import _int.iho.s125.s100.gml.profiles._5_2.AbstractGMLType;
-import _int.iho.s125.gml.cs0._1.AidsToNavigationType;
-import _int.iho.s125.gml.cs0._1.Dataset;
-import _int.iho.s125.gml.cs0._1.S100TruncatedDate;
-import _int.iho.s125.gml.cs0._1.impl.*;
+import _int.iho.s_125.s_100.gml.base._5_2.S100SpatialAttributeType;
+import _int.iho.s_125.s_100.gml.base._5_2.impl.CurvePropertyImpl;
+import _int.iho.s_125.s_100.gml.base._5_2.impl.PointPropertyImpl;
+import _int.iho.s_125.s_100.gml.base._5_2.impl.SurfacePropertyImpl;
+import _int.iho.s_125.s_100.gml.profiles._5_2.AbstractGMLType;
+import _int.iho.s_125.gml.cs0._1.AidsToNavigationType;
+import _int.iho.s_125.gml.cs0._1.Dataset;
+import _int.iho.s_125.gml.cs0._1.S100TruncatedDate;
+import _int.iho.s_125.gml.cs0._1.impl.*;
 import jakarta.xml.bind.*;
 
 import java.beans.IntrospectionException;
@@ -156,57 +156,58 @@ public class S125Utils {
 
         // Otherwise combine all member data
         return Stream.of(
-                        members.getSpatialUncertainty(),
-                        members.getAtoNFixingMethod(),
-                        members.getPositioningInformation(),
-                        members.getAtoNStatusInformation(),
-                        members.getBeaconSpecialPurposeGeneral(),
-                        members.getBeaconLateral(),
-                        members.getBeaconCardinal(),
-                        members.getBeaconIsolatedDanger(),
-                        members.getBeaconSafeWater(),
-                        members.getBuoyInstallation(),
-                        members.getBuoyLateral(),
-                        members.getBuoyCardinal(),
-                        members.getBuoySafeWater(),
-                        members.getBuoyIsolatedDanger(),
-                        members.getBuoySpecialPurposeGeneral(),
-                        members.getOffshorePlatform(),
-                        members.getLightVessel(),
-                        members.getPile(),
-                        members.getSiloTank(),
-                        members.getLighthouse(),
-                        members.getLandmark(),
-                        members.getLightFloat(),
-                        members.getTopmark(),
-                        members.getLight(),
-                        members.getFogSignal(),
-                        members.getRetroReflector(),
-                        members.getRadarReflector(),
-                        members.getDaymark(),
-                        members.getRadarTransponderBeacon(),
-                        members.getRecommendedTrack(),
-                        members.getNavigationLine(),
-                        members.getAggregation(),
-                        members.getAssociation(),
-                        members.getDataCoverage(),
-                        members.getLocalDirectionOfBuoyage(),
-                        members.getNavigationalSystemOfMarks(),
-                        members.getQualityOfNonBathymetricData(),
-                        members.getSoundingDatum(),
-                        members.getVerticalDatumOfData(),
-                        members.getVerticalDatum(),
-                        members.getAidsToNavigation(),
-                        members.getEquipment(),
-                        members.getStructureObject(),
-                        members.getGenericBeacon(),
-                        members.getGenericBuoy(),
-                        members.getBuoyEmergencyWreckMarking(),
-                        members.getPhysicalAISAidToNavigation(),
-                        members.getVirtualAISAidToNavigation(),
-                        members.getSyntheticAISAidToNavigation(),
-                        members.getMooringWarpingFacility(),
-                        members.getRadioStation()
+                members.getSpatialQuality(),
+                members.getAtoNFixingMethod(),
+                members.getPositioningInformation(),
+                members.getAtonStatusInformation(),
+                members.getSpecialPurposeGeneralBeacon(),
+                members.getLateralBeacon(),
+                members.getCardinalBeacon(),
+                members.getIsolatedDangerBeacon(),
+                members.getSafeWaterBeacon(),
+                members.getInstallationBuoy(),
+                members.getLateralBuoy(),
+                members.getCardinalBuoy(),
+                members.getSafeWaterBuoy(),
+                members.getIsolatedDangerBuoy(),
+                members.getSpecialPurposeGeneralBuoy(),
+                members.getOffshorePlatform(),
+                members.getLightVessel(),
+                members.getPile(),
+                members.getSiloTank(),
+                members.getLighthouse(),
+                members.getLandmark(),
+                members.getLightFloat(),
+                members.getTopmark(),
+                members.getGenericLight(),
+                members.getLightAllAround(),
+                members.getLightSectored(),
+                members.getLightAirObstruction(),
+                members.getLightFogDetector(),
+                members.getFogSignal(),
+                members.getRadarReflector(),
+                members.getDaymark(),
+                members.getRadarTransponderBeacon(),
+                members.getRecommendedTrack(),
+                members.getNavigationLine(),
+                members.getAtonAggregation(),
+                members.getAtonAssociation(),
+                members.getDataCoverage(),
+                members.getLocalDirectionOfBuoyage(),
+                members.getNavigationalSystemOfMarks(),
+                members.getSoundingDatum(),
+                members.getVerticalDatumOfData(),
+                members.getVerticalDatumOfData(),
+                members.getAidsToNavigation(),
+                members.getEquipment(),
+                members.getStructureObject(),
+                members.getGenericBeacon(),
+                members.getGenericBuoy(),
+                members.getEmergencyWreckMarkingBuoy(),
+                members.getPhysicalAISAidToNavigation(),
+                members.getVirtualAISAidToNavigation(),
+                members.getSyntheticAISAidToNavigation(),
+                members.getRadioStation()
                 )
                 .flatMap(Collection::stream)
                 .filter(AbstractGMLType.class::isInstance)
@@ -238,36 +239,36 @@ public class S125Utils {
         // Add all the member entries iteratively
         for(T member : memberEntries) {
             switch (member) {
-                case SpatialUncertaintyImpl spatialUncertainty ->
-                        members.getSpatialUncertainty().add(member);
+                case SpatialQualityImpl spatialUncertainty ->
+                        members.getSpatialQuality().add(member);
                 case AtoNFixingMethodImpl atoNFixingMethod ->
                         members.getAtoNFixingMethod().add(member);
                 case PositioningInformationImpl positioningInformation ->
                         members.getPositioningInformation().add(member);
-                case AtoNStatusInformationImpl atoNStatusInformation ->
-                        members.getAtoNStatusInformation().add(member);
-                case BeaconSpecialPurposeGeneralImpl beaconSpecialPurposeGeneral ->
-                        members.getBeaconSpecialPurposeGeneral().add(member);
-                case BeaconLateralImpl beaconLateral ->
-                        members.getBeaconLateral().add(member);
-                case BeaconCardinalImpl beaconCardinal ->
-                        members.getBeaconCardinal().add(member);
-                case BeaconIsolatedDangerImpl beaconIsolatedDanger ->
-                        members.getBeaconIsolatedDanger().add(member);
-                case BeaconSafeWaterImpl beaconSafeWater ->
-                        members.getBeaconSafeWater().add(member);
-                case BuoyInstallationImpl buoyInstallation ->
-                        members.getBuoyInstallation().add(member);
-                case BuoyLateralImpl buoyLateral ->
-                        members.getBuoyLateral().add(member);
-                case BuoyCardinalImpl buoyCardinal ->
-                        members.getBuoyCardinal().add(member);
-                case BuoySafeWaterImpl buoySafeWater ->
-                        members.getBuoySafeWater().add(member);
-                case BuoyIsolatedDangerImpl buoyIsolatedDanger ->
-                        members.getBuoyIsolatedDanger().add(member);
-                case BuoySpecialPurposeGeneralImpl buoySpecialPurposeGeneral ->
-                        members.getBuoySpecialPurposeGeneral().add(member);
+                case AtonStatusInformationImpl atoNStatusInformation ->
+                        members.getAtonStatusInformation().add(member);
+                case SpecialPurposeGeneralBeaconImpl specialPurposeGeneralBeacon ->
+                        members.getSpecialPurposeGeneralBeacon().add(member);
+                case LateralBeaconImpl lateralBeacon ->
+                        members.getLateralBeacon().add(member);
+                case CardinalBeaconImpl cardinalBeacon ->
+                        members.getCardinalBeacon().add(member);
+                case IsolatedDangerBeaconImpl isolatedDangerBeacon ->
+                        members.getIsolatedDangerBeacon().add(member);
+                case SafeWaterBeaconImpl safeWaterBeacon ->
+                        members.getSafeWaterBeacon().add(member);
+                case InstallationBuoyImpl installationBuoy ->
+                        members.getInstallationBuoy().add(member);
+                case LateralBuoyImpl lateralBuoy ->
+                        members.getLateralBuoy().add(member);
+                case CardinalBuoyImpl cardinalBuoy ->
+                        members.getCardinalBuoy().add(member);
+                case SafeWaterBuoyImpl safeWaterBuoy ->
+                        members.getSafeWaterBuoy().add(member);
+                case IsolatedDangerBuoyImpl isolatedDangerBuoy ->
+                        members.getIsolatedDangerBuoy().add(member);
+                case SpecialPurposeGeneralBuoyImpl specialPurposeGeneralBuoy ->
+                        members.getSpecialPurposeGeneralBuoy().add(member);
                 case OffshorePlatformImpl offshorePlatform ->
                         members.getOffshorePlatform().add(member);
                 case LightVesselImpl lightVessel ->
@@ -284,14 +285,20 @@ public class S125Utils {
                         members.getLightFloat().add(member);
                 case TopmarkImpl topmark ->
                         members.getTopmark().add(member);
-                case LightImpl light ->
-                        members.getLight().add(member);
+                case LightAllAroundImpl lightAllAround ->
+                        members.getLightAllAround().add(member);
+                case LightSectoredImpl lightSectored ->
+                        members.getLightSectored().add(member);
+                case LightAirObstructionImpl lightAirObstruction ->
+                        members.getLightAirObstruction().add(member);
+                case LightFogDetectorImpl lightFogDetector ->
+                        members.getLightFogDetector().add(member);
                 case FogSignalImpl fogSignal ->
                         members.getFogSignal().add(member);
                 case RadarReflectorImpl radarReflector ->
                         members.getRadarReflector().add(member);
-                case RetroReflectorImpl retroReflector ->
-                        members.getRetroReflector().add(member);
+                case RetroreflectorImpl retroReflector ->
+                        members.getRetroreflector().add(member);
                 case DaymarkImpl daymark ->
                         members.getDaymark().add(member);
                 case RadarTransponderBeaconImpl radarTransponderBeacon ->
@@ -300,32 +307,28 @@ public class S125Utils {
                         members.getRecommendedTrack().add(member);
                 case NavigationLineImpl navigationLine ->
                         members.getNavigationLine().add(member);
-                case AggregationImpl aggregation ->
-                        members.getAssociation().add(member);
-                case AssociationImpl association ->
-                        members.getAssociation().add(member);
+                case AtonAggregationImpl aggregation ->
+                        members.getAtonAggregation().add(member);
+                case AtonAssociationImpl association ->
+                        members.getAtonAssociation().add(member);
                 case DataCoverageImpl dataCoverage ->
                         members.getDataCoverage().add(member);
                 case LocalDirectionOfBuoyageImpl localDirectionOfBuoyage ->
                         members.getLocalDirectionOfBuoyage().add(member);
                 case NavigationalSystemOfMarksImpl navigationalSystemOfMarks ->
                         members.getNavigationalSystemOfMarks().add(member);
-                case QualityOfNonBathymetricDataImpl qualityOfNonBathymetricData ->
-                        members.getQualityOfNonBathymetricData().add(member);
                 case SoundingDatumImpl soundingDatum ->
                         members.getSoundingDatum().add(member);
-                case VerticalDatumImpl verticalDatum ->
-                        members.getVerticalDatum().add(member);
-                case BuoyEmergencyWreckMarkingImpl buoyEmergencyWreckMarking ->
-                        members.getBuoyEmergencyWreckMarking().add(member);
+                case VerticalDatumOfDataImpl verticalDatum ->
+                        members.getVerticalDatumOfData().add(member);
+                case EmergencyWreckMarkingBuoyImpl buoyEmergencyWreckMarking ->
+                        members.getEmergencyWreckMarkingBuoy().add(member);
                 case PhysicalAISAidToNavigationImpl physicalAISAidToNavigation ->
                         members.getPhysicalAISAidToNavigation().add(member);
                 case VirtualAISAidToNavigationImpl virtualAISAidToNavigation ->
                         members.getVirtualAISAidToNavigation().add(member);
                 case SyntheticAISAidToNavigationImpl syntheticAISAidToNavigation ->
                         members.getSyntheticAISAidToNavigation().add(member);
-                case MooringWarpingFacilityImpl mooringWarpingFacility ->
-                        members.getMooringWarpingFacility().add(member);
                 case RadioStationImpl radioStation ->
                         members.getRadioStation().add(member);
                 case null, default ->
