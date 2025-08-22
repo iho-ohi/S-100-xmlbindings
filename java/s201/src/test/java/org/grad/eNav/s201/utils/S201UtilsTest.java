@@ -109,7 +109,6 @@ class S201UtilsTest {
         featureNameType.setDisplayName(Boolean.TRUE);
         vaton.getFeatureNames().add(featureNameType);
         vaton.setIDCode("urn:mrn:grad:aton:test:corkhole");
-        vaton.setEstimatedRangeOfTransmission(20.0);
         vaton.setMMSICode("992359598");
         vaton.setSource("CHT");
         vaton.setSourceDate(LocalDate.of(2000, 1, 1));
@@ -293,7 +292,7 @@ class S201UtilsTest {
         assertEquals(datasetMember.getFeatureNames().getFirst().getName(), resultMember.getFeatureNames().getFirst().getName());
         assertEquals(datasetMember.getFeatureNames().getFirst().getLanguage(), resultMember.getFeatureNames().getFirst().getLanguage());
         assertEquals(datasetMember.getFeatureNames().getFirst().isDisplayName(), resultMember.getFeatureNames().getFirst().isDisplayName());
-        assertEquals(datasetMember.getEstimatedRangeOfTransmission(), resultMember.getEstimatedRangeOfTransmission());
+        //assertEquals(datasetMember.getEstimatedRangeOfTransmission(), resultMember.getEstimatedRangeOfTransmission());
         assertEquals(datasetMember.getMMSICode(), resultMember.getMMSICode());
         assertNotNull(resultMember.getStatuses());
         assertEquals(datasetMember.getStatuses().size(), resultMember.getStatuses().size());

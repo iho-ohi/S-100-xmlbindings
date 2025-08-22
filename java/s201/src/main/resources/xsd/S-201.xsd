@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:S100="http://www.iho.int/s100gml/5.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns="http://www.iho.int/S-201/gml/cs0/1.0" targetNamespace="http://www.iho.int/S-201/gml/cs0/1.0" elementFormDefault="qualified" version="2.0.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:S100="http://www.iho.int/s100gml/5.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns="http://www.iho.int/S-201/gml/cs0/2.0" targetNamespace="http://www.iho.int/S-201/gml/cs0/2.0" elementFormDefault="qualified" version="2.0.0">
     <!-- ========================================================================================== -->
     <!-- S100 XML/GML Schema for S-201                                                              -->
     <!-- ========================================================================================== -->
@@ -5512,7 +5512,7 @@
             <xs:documentation>Something (such as a house, tower, bridge, etc.) that is built by putting parts together and that usually stands on its own.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="AtoNNumber" type="xs:anyURI" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -5559,7 +5559,7 @@
             <xs:documentation>The implements used in an operation or activity.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="remoteMonitoringSystem" type="xs:string" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
@@ -5581,7 +5581,7 @@
             <xs:documentation>TBD</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="AtoNNumber" type="xs:anyURI" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -5608,7 +5608,7 @@
             <xs:documentation>A fixed artificial navigation mark that can be recognized by its shape, colour, pattern, topmark or light character, or a combination of these. It may carry various additional aids to navigation.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="StructureObjectType">
                 <xs:sequence>
                     <xs:element name="beaconShape" type="beaconShapeType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -5680,7 +5680,7 @@
             <xs:documentation>A floating object moored to the bottom in a particular (charted) place, as an aid to navigation or for other specific purposes.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="StructureObjectType">
                 <xs:sequence>
                     <xs:element name="buoyShape" type="buoyShapeType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -5762,7 +5762,7 @@
             <xs:documentation>-</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="EquipmentType">
                 <xs:sequence>
                     <xs:element name="height" type="xs:double" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -5804,7 +5804,7 @@
             <xs:documentation>A prominent object at a fixed location on land which can be used in determining a location or a direction.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="StructureObjectType">
                 <xs:sequence>
                     <xs:element name="categoryOfLandmark" type="categoryOfLandmarkType" minOccurs="1" maxOccurs="unbounded">
                         <xs:annotation>
@@ -5895,7 +5895,7 @@
             <xs:documentation>A lateral beacon is used to indicate the port or starboard hand side of the route to be followed. They are generally used for well defined channels and are used in conjunction with a conventional direction of buoyage.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBeaconType">
                 <xs:sequence>
                     <xs:element name="categoryOfLateralMark" type="categoryOfLateralMarkType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -5919,7 +5919,7 @@
             <xs:documentation>A lateral buoy is used to indicate the port or starboard hand side of the route to be followed. They are generally used for well-defined channels and are used in conjunction with a conventional direction of buoyage.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBuoyType">
                 <xs:sequence>
                     <xs:element name="categoryOfLateralMark" type="categoryOfLateralMarkType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -6056,7 +6056,7 @@
             <xs:documentation>A light presenting different appearances (in particular, different colours) over various parts of the horizon of interest to maritime navigation.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericLightType">
                 <xs:sequence>
                     <xs:element name="colour" type="colourType" minOccurs="1" maxOccurs="unbounded">
                         <xs:annotation>
@@ -6093,6 +6093,11 @@
                             <xs:documentation>Describes the characteristics of a light sector.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="multiplicityOfFeatures" type="multiplicityOfFeaturesType" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>The number of features of identical character that exist as a colocated group.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="geometry" maxOccurs="unbounded">
                         <xs:complexType>
                             <xs:choice>
@@ -6110,7 +6115,7 @@
             <xs:documentation>An all around light is a light that is visible over the whole horizon of interest to marine navigation and having no change in the characteristics of the light.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericLightType">
                 <xs:sequence>
                     <xs:element name="colour" type="colourType" minOccurs="1" maxOccurs="unbounded">
                         <xs:annotation>
@@ -6184,7 +6189,7 @@
             <xs:documentation>An air obstruction light is a light marking an obstacle which constitutes a danger to air navigation.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericLightType">
                 <xs:sequence>
                     <xs:element name="exhibitionConditionOfLight" type="exhibitionConditionOfLightType" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
@@ -6233,7 +6238,7 @@
             <xs:documentation>A fog detector light is a light used to automatically determine conditions of visibility which warrant the turning on or off of a sound signal.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericLightType">
                 <xs:sequence>
                     <xs:element name="signalGeneration" type="signalGenerationType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -6262,7 +6267,7 @@
             <xs:documentation>A device capable of, or intended for, reflecting radar signals.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="EquipmentType">
                 <xs:sequence>
                     <xs:element name="height" type="xs:double" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -6301,7 +6306,7 @@
             <xs:documentation>A warning signal transmitted by a vessel, or aid to navigation, during periods of low visibility. Also, the device producing such a signal.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="EquipmentType">
                 <xs:sequence>
                     <xs:element name="categoryOfFogSignal" type="categoryOfFogSignalType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -6365,7 +6370,7 @@
             <xs:documentation>A sensor used to observe the environment.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="EquipmentType">
                 <xs:sequence>
                     <xs:element name="height" type="xs:double" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -6399,7 +6404,7 @@
             <xs:documentation>A place equipped to transmit radio waves. Such a station may be either stationary or mobile, and may also be provided with a radio receiver.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="EquipmentType">
                 <xs:sequence>
                     <xs:element name="categoryOfRadioStation" type="categoryOfRadioStationType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -6448,7 +6453,7 @@
             <xs:documentation>(1) The identifying characteristics of an aid to navigation which serve to facilitate its recognition against a daylight viewing background. On those structures that do not by themselves present an adequate viewing area to be seen at the required distance, the aid is made more visible by affixing a daymark to the structure. A daymark so affixed has a distinctive colour and shape depending on the purpose of the aid. (2) An unlighted navigational mark.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="EquipmentType">
                 <xs:sequence>
                     <xs:element name="categoryOfSpecialPurposeMark" type="categoryOfSpecialPurposeMarkType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -6532,7 +6537,7 @@
             <xs:documentation>A means of distinguishing unlighted marks at night. Retro-reflective material is secured to the mark in a particular pattern to reflect back light.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="EquipmentType">
                 <xs:sequence>
                     <xs:element name="colour" type="colourType" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
@@ -6586,7 +6591,7 @@
             <xs:documentation>A transponder beacon transmitting a coded signal on radar frequency, permitting an interrogating craft to determine the bearing and range of the transponder.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="EquipmentType">
                 <xs:sequence>
                     <xs:element name="categoryOfRadarTransponderBeacon" type="categoryOfRadarTransponderBeaconType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -6613,7 +6618,7 @@
                             <xs:documentation>The luminous range of a light in a homogenous atmosphere in which the meteorological visibility is 10 sea miles.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="manufactorer" type="xs:string" minOccurs="0" maxOccurs="1">
+                    <xs:element name="manufacturer" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation>-</xs:documentation>
                         </xs:annotation>
@@ -6650,7 +6655,7 @@
             <xs:documentation>An Automatic Identification System (AIS) message 21 transmitted from an AIS station to simulate on navigation systems an Aid to Navigation which does not physically exist.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="ElectronicAtonType">
                 <xs:sequence>
                     <xs:element name="virtualAISAidToNavigationType" type="virtualAISAidToNavigationTypeType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -6679,7 +6684,7 @@
             <xs:documentation>An Automatic Identification System (AIS) message 21 transmitted from a physical Aid to Navigation, or transmitted from an AIS station for an Aid to Navigation which physically exists.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="ElectronicAtonType">
                 <xs:sequence>
                     <xs:element name="CategoryOfPhysicalAISAidToNavigation" type="CategoryOfPhysicalAISAidToNavigationType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -6708,7 +6713,7 @@
             <xs:documentation>-</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="ElectronicAtonType">
                 <xs:sequence>
                     <xs:element name="CategoryOfSyntheticAISAidtoNavigation" type="CategoryOfSyntheticAISAidtoNavigationType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -6742,7 +6747,7 @@
             <xs:documentation>-</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="EquipmentType">
                 <xs:sequence>
                     <xs:element name="CategoryOfPowerSource" type="CategoryOfPowerSourceType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -6752,6 +6757,11 @@
                     <xs:element name="status" type="statusType" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
                             <xs:documentation>The condition of an object at a given instant in time.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="manufacturer" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>-</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="geometry" maxOccurs="unbounded">
@@ -6771,7 +6781,7 @@
             <xs:documentation>An isolated danger beacon is a beacon erected on an isolated danger of limited extent, which has navigable water all around it.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBeaconType">
                 <xs:sequence>
                     <xs:element name="geometry" maxOccurs="unbounded">
                         <xs:complexType>
@@ -6790,7 +6800,7 @@
             <xs:documentation>A cardinal beacon is used in conjunction with the compass to indicate where the mariner may find the best navigable water. It is placed in one of the four quadrants (North, East, South and West), bounded by inter-cardinal bearings from the point marked.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBeaconType">
                 <xs:sequence>
                     <xs:element name="categoryOfCardinalMark" type="categoryOfCardinalMarkType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -6814,7 +6824,7 @@
             <xs:documentation>An isolated danger buoy is a buoy moored on or above an isolated danger of limited extent, which has navigable water all around it.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBuoyType">
                 <xs:sequence>
                     <xs:element name="geometry" maxOccurs="unbounded">
                         <xs:complexType>
@@ -6833,7 +6843,7 @@
             <xs:documentation>A cardinal buoy is used in conjunction with the compass to indicate where the mariner may find the best navigable water. It is placed in one of the four quadrants (North, East, South and West), bounded by inter-cardinal bearings from the point marked.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBuoyType">
                 <xs:sequence>
                     <xs:element name="categoryOfCardinalMark" type="categoryOfCardinalMarkType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -6857,7 +6867,7 @@
             <xs:documentation>A buoy is a floating object moored to the bottom in a particular place, as an aid to navigation or for other specific purposes. (IHO Dictionary, S-32, 5th Edition, 565). An installation buoy is a buoy used for loading tankers with gas or oil. (IHO Chart Specifications, M-4)</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBuoyType">
                 <xs:sequence>
                     <xs:element name="categoryOfInstallationBuoy" type="categoryOfInstallationBuoyType" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
@@ -6881,7 +6891,7 @@
             <xs:documentation>The equipment or structure used to secure a vessel. (IHO Registry)</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBuoyType">
                 <xs:sequence>
                     <xs:element name="geometry" maxOccurs="unbounded">
                         <xs:complexType>
@@ -6900,7 +6910,7 @@
             <xs:documentation>An emergency wreck marking buoy is a buoy moored on or above a new wreck, designed to provide a prominent (both visual and radio) and easily identifiable temporary (24-72 hours) first response. (IHO Registry)</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBuoyType">
                 <xs:sequence>
                     <xs:element name="geometry" maxOccurs="unbounded">
                         <xs:complexType>
@@ -6919,17 +6929,17 @@
             <xs:documentation>A distinctive structure on or off a coast exhibiting a major light designed to serve as an aid to navigation.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
-                <xs:sequence>
-                    <xs:element name="geometry" maxOccurs="unbounded">
-                        <xs:complexType>
-                            <xs:choice>
-                                <xs:element ref="S100:pointProperty"/>
-                                <xs:element ref="S100:surfaceProperty"/>
-                            </xs:choice>
-                        </xs:complexType>
-                    </xs:element>
-                </xs:sequence>
+            <xs:extension base="LandmarkType">
+<!--                <xs:sequence>-->
+<!--                    <xs:element name="geometry" maxOccurs="unbounded">-->
+<!--                        <xs:complexType>-->
+<!--                            <xs:choice>-->
+<!--                                <xs:element ref="S100:pointProperty"/>-->
+<!--                                <xs:element ref="S100:surfaceProperty"/>-->
+<!--                            </xs:choice>-->
+<!--                        </xs:complexType>-->
+<!--                    </xs:element>-->
+<!--                </xs:sequence>-->
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -6939,7 +6949,7 @@
             <xs:documentation>A boat-like structure used instead of a light buoy in waters where strong streams or currents are experienced, or when a greater elevation than that of a light buoy is necessary.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="StructureObjectType">
                 <xs:sequence>
                     <xs:element name="colour" type="colourType" minOccurs="1" maxOccurs="unbounded">
                         <xs:annotation>
@@ -7018,7 +7028,7 @@
             <xs:documentation>A distinctively marked vessel anchored or moored at a charted point, to serve as an aid to navigation. By night, it displays a characteristic light(s) and is usually equipped with other devices, such as fog signal, submarine sound signal, and radio-beacon, to assist navigation.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="StructureObjectType">
                 <xs:sequence>
                     <xs:element name="colour" type="colourType" minOccurs="1" maxOccurs="unbounded">
                         <xs:annotation>
@@ -7097,7 +7107,7 @@
             <xs:documentation>A permanent offshore structure, either fixed or floating.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="StructureObjectType">
                 <xs:sequence>
                     <xs:element name="categoryOfOffshorePlatform" type="categoryOfOffshorePlatformType" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
@@ -7182,7 +7192,7 @@
             <xs:documentation>A large storage structure used for storing loose materials, liquids and/or gases.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="StructureObjectType">
                 <xs:sequence>
                     <xs:element name="buildingShape" type="buildingShapeType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -7267,7 +7277,7 @@
             <xs:documentation>A long heavy timber or section of steel, wood, concrete, etc., forced into the earth or sea floor to serve as a support, as for a pier, or to resist lateral pressure; or as a free standing pole within a marine environment.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="StructureObjectType">
                 <xs:sequence>
                     <xs:element name="categoryOfPile" type="categoryOfPileType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -7326,7 +7336,7 @@
             <xs:documentation>A free-standing self-supporting construction that is roofed, usually walled, and is intended for human occupancy (for example: a place of work or recreation) and/or habitation.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="StructureObjectType">
                 <xs:sequence>
                     <xs:element name="geometry" maxOccurs="unbounded">
                         <xs:complexType>
@@ -7345,7 +7355,7 @@
             <xs:documentation>(1) An elevated structure extending across or over the weather deck of a vessel, or part of such a structure. The term is sometimes modified to indicate the intended use, such as navigating bridge or signal bridge.  (2) A structure erected over a depression or an obstacle such as a body of water, railroad, etc., to provide a roadway for vehicles or pedestrians.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="StructureObjectType">
                 <xs:sequence>
                 </xs:sequence>
             </xs:extension>
@@ -7357,7 +7367,7 @@
             <xs:documentation>A heavy weight (of concrete, cast-iron, etc..) that rests on the sea bed and to which a mooring line can be attached. (IALA Dictionary, 8-5-025)</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="natureOfConstruction" type="natureOfConstructionType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -7401,7 +7411,7 @@
             <xs:documentation>A shackle at the lower end of a mooring chain, for attachment to an anchor or sinker. (IALA Dictionary, 8-5-150)</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="natureOfConstruction" type="natureOfConstructionType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -7460,7 +7470,7 @@
             <xs:documentation>An assembly of wires or fibres, or a wire rope or chain, which has been laid underwater or buried beneath the sea floor.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="CableDimensions" type="CableDimensionsType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -7504,7 +7514,7 @@
             <xs:documentation>A chain link that provides for rotary motion between the lengths of chain that it connects. (IALA Dictionary, 8-5-165)</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="natureOfConstruction" type="natureOfConstructionType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -7553,7 +7563,7 @@
             <xs:documentation>Two lengths of chain connected by a central ring and used for lifting wide loads. (IALA Dictionary,8-3-195)</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="bridleLinkType" type="xs:string" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -7602,7 +7612,7 @@
             <xs:documentation>-</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="natureOfConstruction" type="natureOfConstructionType" minOccurs="0" maxOccurs="1">
                         <xs:annotation>
@@ -7641,7 +7651,7 @@
             <xs:documentation>A characteristic shape secured at the top of a buoy or beacon to aid in its identification. (IHO Dictionary, S-32, 5th Edition, 5548)</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="AidsToNavigationType">
                 <xs:sequence>
                     <xs:element name="colour" type="colourType" minOccurs="0" maxOccurs="unbounded">
                         <xs:annotation>
@@ -7690,7 +7700,7 @@
             <xs:documentation>A safe water beacon is used to indicate that there is navigable water around the mark.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBeaconType">
                 <xs:sequence>
                     <xs:element name="geometry" maxOccurs="unbounded">
                         <xs:complexType>
@@ -7709,7 +7719,7 @@
             <xs:documentation>A special purpose beacon is primarily used to indicate an area or feature, the nature of which is apparent from reference to a chart, Sailing Directions or Notices to Mariners.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBeaconType">
                 <xs:sequence>
                     <xs:element name="categoryOfSpecialPurposeMark" type="categoryOfSpecialPurposeMarkType" minOccurs="1" maxOccurs="unbounded">
                         <xs:annotation>
@@ -7733,7 +7743,7 @@
             <xs:documentation>A safe water buoy is used to indicate that there is navigable water around the mark.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBuoyType">
                 <xs:sequence>
                     <xs:element name="geometry" maxOccurs="unbounded">
                         <xs:complexType>
@@ -7752,7 +7762,7 @@
             <xs:documentation>A special purpose buoy is primarily used to indicate an area or feature, the nature of which is apparent from reference to a chart, Sailing Directions or Notices to Mariners.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="S100:AbstractFeatureType">
+            <xs:extension base="GenericBuoyType">
                 <xs:sequence>
                     <xs:element name="categoryOfSpecialPurposeMark" type="categoryOfSpecialPurposeMarkType" minOccurs="1" maxOccurs="unbounded">
                         <xs:annotation>
