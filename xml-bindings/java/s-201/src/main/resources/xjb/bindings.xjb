@@ -1,0 +1,47 @@
+<bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:annox="http://annox.dev.java.net"
+    xmlns:simplify="urn:jaxb.jvnet.org:plugin:simplify"
+    extensionBindingPrefixes="xjc annox simplify">
+
+    <globalBindings generateValueClass="false" generateElementProperty="false">
+        <xjc:simple/>
+        <xjc:serializable/>
+        <xjc:javaType name="java.lang.Double[]" xmlType="gml:doubleList" adapter="org.grad.eNav.s100.adapters.DoubleListAdapter"/>
+        <xjc:javaType name="java.time.LocalDate" xmlType="xs:date" adapter="org.grad.eNav.s100.adapters.DateAdapter"/>
+        <xjc:javaType name="java.time.LocalDateTime" xmlType="xs:dateTime" adapter="org.grad.eNav.s100.adapters.DateTimeAdapter"/>
+    </globalBindings>
+
+    <bindings
+            schemaLocation="../xsd/S-201.xsd"
+            node="/xs:schema" choiceContentProperty="true">
+        <!-- Avoid the JAXBElements on dataset members -->
+        <bindings multiple="true" node="//xs:group[@name='MemberObjects']/xs:choice/xs:element">
+            <simplify:as-element-property/>
+       </bindings>
+    </bindings>
+
+    <bindings
+            schemaLocation="https://schemas.s100dev.net/schemas/S100/5.0.0/S100GML/20220620/s100gmlbase.xsd"
+            node="/xs:schema">
+        <schemaBindings>
+            <package name="_int.iho.s_201.s_100.gml.base._5_2"/>
+        </schemaBindings>
+
+        <!-- rename the numDerivativeInterior element -->
+        <bindings node="//xs:complexType[@name='S100_GM_PolynomialSplineType']//xs:element[@name='numDerivativeInterior']">
+            <property name="NumDerivativeInteriorAttribute"/>
+        </bindings>
+    </bindings>
+
+    <bindings
+            schemaLocation="https://schemas.s100dev.net/schemas/S100/5.0.0/S100GML/20220620/S100_gmlProfile.xsd"
+            node="/xs:schema">
+        <schemaBindings>
+            <package name="_int.iho.s_201.s_100.gml.profiles._5_2"/>
+        </schemaBindings>
+    </bindings>
+
+</bindings>

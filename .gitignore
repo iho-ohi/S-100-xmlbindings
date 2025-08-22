@@ -118,4 +118,4 @@ local.properties
 .texlipse
 
 ### Don't include the generated Code ###
-/java/*/src/main/generated/**
+/xml-bindings/java/*/src/main/generated/**
