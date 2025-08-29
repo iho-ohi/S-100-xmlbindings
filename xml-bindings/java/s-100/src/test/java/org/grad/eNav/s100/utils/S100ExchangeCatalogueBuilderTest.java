@@ -152,7 +152,9 @@ class S100ExchangeCatalogueBuilderTest {
         final String inString = new String(in.readAllBytes(), StandardCharsets.UTF_8)
                 .replaceAll("-----BEGIN CERTIFICATE-----","")
                 .replaceAll("-----END CERTIFICATE-----","")
-                .replaceAll(System.lineSeparator(),"");
+                .replaceAll(System.lineSeparator(),"")
+                .replaceAll("\n","")
+                .replaceAll("\r\n","");
         final X509Certificate certificate = S100ExchangeSetUtils.getCertFromPem(inString);
 
         // Perform the setting operations

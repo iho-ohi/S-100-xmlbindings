@@ -113,6 +113,8 @@ class S100ExchangeSetUtilsTest {
         final String inCertPem = new String(inCert.readAllBytes(), StandardCharsets.UTF_8)
                 .replaceAll("-----BEGIN CERTIFICATE-----","")
                 .replaceAll("-----END CERTIFICATE-----","")
+                .replaceAll("\n","")
+                .replaceAll("\r\n","")
                 .replaceAll(System.lineSeparator(),"");
         //====================================================================//
 
@@ -489,7 +491,9 @@ class S100ExchangeSetUtilsTest {
         final String inString = new String(in.readAllBytes(), StandardCharsets.UTF_8)
                 .replaceAll("-----BEGIN CERTIFICATE-----","")
                 .replaceAll("-----END CERTIFICATE-----","")
-                .replaceAll(System.lineSeparator(),"");
+                .replaceAll(System.lineSeparator(),"")
+                .replaceAll("\n","")
+                .replaceAll("\r\n","");
 
         // Perform the translations
         X509Certificate certificate = S100ExchangeSetUtils.getCertFromPem(inString);
