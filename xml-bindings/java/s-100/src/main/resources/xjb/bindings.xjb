@@ -1,0 +1,226 @@
+<bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:annox="http://annox.dev.java.net"
+    extensionBindingPrefixes="xjc annox">
+
+    <globalBindings typesafeEnumMaxMembers="1000" typesafeEnumMemberName="generateName">
+        <xjc:javaType name="java.lang.Double[]" xmlType="gml:doubleList" adapter="org.grad.eNav.s100.adapters.DoubleListAdapter"/>
+        <xjc:javaType name="java.time.Duration" xmlType="xs:duration" adapter="org.grad.eNav.s100.adapters.DurationAdapter"/>
+        <xjc:javaType name="java.time.LocalTime" xmlType="xs:time" adapter="org.grad.eNav.s100.adapters.TimeAdapter"/>
+        <xjc:javaType name="java.time.LocalDate" xmlType="xs:date" adapter="org.grad.eNav.s100.adapters.DateAdapter"/>
+        <xjc:javaType name="java.time.LocalDate" xmlType="gco:Date_Type" adapter="org.grad.eNav.s100.adapters.DateAdapter"/>
+        <xjc:javaType name="java.time.LocalDateTime" xmlType="xs:dateTime" adapter="org.grad.eNav.s100.adapters.DateTimeAdapter"/>
+        <xjc:simple/>
+    </globalBindings>
+
+    <bindings
+            schemaLocation="../xsd/s-100/5.2.0/S100SE/20240415/Part15.xsd"
+            node="/xs:schema">
+        <schemaBindings>
+            <package name="_int.iho.s100.catalog._5_2"/>
+        </schemaBindings>
+    </bindings>
+
+    <bindings
+            schemaLocation="../xsd/s-100/5.2.0/S100Catalog/20240415/S100_ExchangeCatalogue.xsd"
+            node="/xs:schema">
+        <schemaBindings>
+            <package name="_int.iho.s100.catalog._5_2"/>
+        </schemaBindings>
+    </bindings>
+
+    <bindings
+            schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryPrimitives.xsd"
+            node="/xs:schema">
+        <!-- rename the number of rows and columns element -->
+        <bindings node="//xs:complexType[@name='AbstractGriddedSurfaceType']//xs:attribute[@name='rows']">
+            <property name="noOfRows"/>
+        </bindings>
+        <bindings node="//xs:complexType[@name='AbstractGriddedSurfaceType']//xs:attribute[@name='columns']">
+            <property name="noOfColumns"/>
+        </bindings>
+    </bindings>
+
+    <!-- StackOverflow 68692723 question -->
+    <bindings
+        schemaLocation="http://schemas.opengis.net/gml/3.2.1/coordinateOperations.xsd">
+        <bindings node="//xs:element[@name='parameterValue']">
+            <factoryMethod name="xparameterValue"/>
+        </bindings>
+        <bindings node="//xs:element[@name='operationParameter']">
+            <factoryMethod name="xoperationParameter"/>
+        </bindings>
+        <bindings node="//xs:element[@name='OperationParameter']">
+            <factoryMethod name="XOperationParameter"/>
+        </bindings>
+    </bindings>
+    <!-- StackOverflow 68692723 question END -->
+
+    <bindings
+        schemaLocation="http://schemas.opengis.net/gml/3.2.1/grids.xsd"
+        node="/xs:schema">
+        <bindings>
+            <bindings node="xs:complexType[@name='GridType']/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element[@name='axisLabels']">
+                <!-- ** Backwards incompatible -->
+                <property name="GridAxisLabels"/>
+            </bindings>
+        </bindings>
+    </bindings>
+
+    <bindings
+        schemaLocation="http://schemas.opengis.net/gml/3.2.1/datums.xsd"
+        node="/xs:schema">
+        <bindings>
+            <bindings node="//xs:element[@name='secondDefiningParameter']">
+                <class name="SecondDefiningParameterPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='ellipsoid']">
+                <factoryMethod name="EllipsoidPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='primeMeridian']">
+                <factoryMethod name="PrimeMeridianPropertyElement"/>
+            </bindings>
+        </bindings>
+    </bindings>
+
+    <bindings
+        schemaLocation="http://schemas.opengis.net/gml/3.2.1/coordinateReferenceSystems.xsd"
+        node="/xs:schema">
+        <bindings>
+            <bindings node="//xs:element[@name='userDefinedCS']">
+                <factoryMethod name="UserDefinedCSPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='cartesianCS']">
+                <factoryMethod name="CartesianCSPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='sphericalCS']">
+                <factoryMethod name="SphericalCSPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='polarCS']">
+                <factoryMethod name="PolarCSPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='linearCS']">
+                <factoryMethod name="LinearCSPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='verticalCS']">
+                <factoryMethod name="VerticalCSPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='cylindricalCS']">
+                <factoryMethod name="CylindricalCSPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='ellipsoidalCS']">
+                <factoryMethod name="EllipsoidalCSPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='affineCS']">
+                <factoryMethod name="AffineCSPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='timeCS']">
+                <factoryMethod name="TimeCSPropertyElement"/>
+            </bindings>
+
+            <bindings node="//xs:element[@name='imageDatum']">
+                <factoryMethod name="ImageDatumPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='geodeticDatum']">
+                <factoryMethod name="GeodeticDatumPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='temporalDatum']">
+                <factoryMethod name="TemporalDatumPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='engineeringDatum']">
+                <factoryMethod name="EngineeringDatumPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='verticalDatum']">
+                <factoryMethod name="VerticalDatumPropertyElement"/>
+            </bindings>
+            <bindings node="//xs:element[@name='conversion']">
+                <factoryMethod name="ConversionPropertyElement"/>
+            </bindings>
+        </bindings>
+    </bindings>
+
+    <bindings
+        schemaLocation="http://schemas.opengis.net/gml/3.2.1/geometryAggregates.xsd"
+        node="/xs:schema">
+        <bindings>
+            <bindings node="//xs:complexType[@name='MultiGeometryType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:geometryMember']">
+                <property name="GeometryMemberElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='MultiGeometryType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:geometryMembers']">
+                <property name="GeometryMembersElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='MultiPointType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:pointMember']">
+                <property name="PointMemberElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='MultiPointType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:pointMembers']">
+                <property name="PointMembersElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='MultiCurveType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:curveMember']">
+                <property name="CurveMemberElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='MultiCurveType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:curveMembers']">
+                <property name="CurveMembersElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='MultiSurfaceType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:surfaceMember']">
+                <property name="SurfaceMemberElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='MultiSurfaceType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:surfaceMembers']">
+                <property name="SurfaceMembersElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='MultiSolidType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:solidMember']">
+                <property name="SolidMemberElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='MultiSolidType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:solidMembers']">
+                <property name="SolidMembersElement"/>
+            </bindings>
+        </bindings>
+    </bindings>
+
+    <bindings
+        schemaLocation="http://schemas.opengis.net/gml/3.2.1/topology.xsd"
+        node="/xs:schema">
+        <bindings>
+            <bindings node="//xs:complexType[@name='TopoComplexType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:topoPrimitiveMember']">
+                <property name="TopoPrimitiveMemberElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='TopoComplexType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:topoPrimitiveMembers']">
+                <property name="TopoPrimitiveMembersElement"/>
+            </bindings>
+        </bindings>
+    </bindings>
+
+    <bindings
+        schemaLocation="http://schemas.opengis.net/gml/3.2.1/valueObjects.xsd"
+        node="/xs:schema">
+        <bindings>
+            <bindings node="//xs:complexType[@name='CompositeValueType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:valueComponent']">
+                <property name="ValueComponentElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='CompositeValueType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:valueComponents']">
+                <property name="ValueComponentsElement"/>
+            </bindings>
+        </bindings>
+    </bindings>
+
+    <bindings
+        schemaLocation="http://schemas.opengis.net/gml/3.2.1/deprecatedTypes.xsd"
+        node="/xs:schema">
+        <bindings>
+            <bindings node="//xs:complexType[@name='BagType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:member']">
+                <property name="MemberElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='BagType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:members']">
+                <property name="MembersElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='AbstractFeatureCollectionType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:featureMember']">
+                <property name="FeatureMemberElement"/>
+            </bindings>
+            <bindings node="//xs:complexType[@name='AbstractFeatureCollectionType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@ref='gml:featureMembers']">
+                <property name="FeatureMembersElement"/>
+            </bindings>
+        </bindings>
+    </bindings>
+
+</bindings>

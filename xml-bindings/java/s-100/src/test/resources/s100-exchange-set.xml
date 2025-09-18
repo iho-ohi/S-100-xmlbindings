@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns15:S100_ExchangeCatalogue xmlns:ns15="http://www.iho.int/s100/xc/5.2" xmlns:ns1="http://standards.iso.org/iso/19115/-3/gco/1.0" xmlns:ns10="http://www.isotc211.org/2005/gco" xmlns:ns11="http://www.isotc211.org/2005/gmd" xmlns:ns12="http://standards.iso.org/iso/19115/-3/mco/1.0" xmlns:ns13="http://www.isotc211.org/2005/gts" xmlns:ns14="http://standards.iso.org/iso/19115/-3/mri/1.0" xmlns:ns16="http://www.iho.int/s100/se/5.2" xmlns:ns2="http://standards.iso.org/iso/19115/-3/gex/1.0" xmlns:ns3="http://standards.iso.org/iso/19115/-3/mmi/1.0" xmlns:ns4="http://standards.iso.org/iso/19115/-3/mcc/1.0" xmlns:ns5="http://standards.iso.org/iso/19115/-3/cit/2.0" xmlns:ns6="http://standards.iso.org/iso/19115/-3/cit/1.0" xmlns:ns7="http://www.w3.org/1999/xlink" xmlns:ns8="http://standards.iso.org/iso/19115/-3/lan/1.0" xmlns:ns9="http://www.opengis.net/gml/3.2">
+    <ns15:identifier>
+        <ns15:identifier>Test Exchange Set</ns15:identifier>
+        <ns15:dateTime>2023-01-01T00:00:00Z</ns15:dateTime>
+    </ns15:identifier>
+    <ns15:contact>
+        <ns15:organization>
+            <ns1:CharacterString>GRAD</ns1:CharacterString>
+        </ns15:organization>
+        <ns15:phone>
+            <ns5:number>
+                <ns1:CharacterString>+44 1255 245000</ns1:CharacterString>
+            </ns5:number>
+            <ns5:numberType>
+                <ns5:CI_TelephoneTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml" codeListValue="voice">voice</ns5:CI_TelephoneTypeCode>
+            </ns5:numberType>
+        </ns15:phone>
+        <ns15:address>
+            <ns5:city>
+                <ns1:CharacterString>Harwich</ns1:CharacterString>
+            </ns5:city>
+            <ns5:administrativeArea>
+                <ns1:CharacterString>England, Wales, Scotland and the whole of Ireland</ns1:CharacterString>
+            </ns5:administrativeArea>
+            <ns5:postalCode>
+                <ns1:CharacterString>postalCode</ns1:CharacterString>
+            </ns5:postalCode>
+            <ns5:country>
+                <ns1:CharacterString>UK and Ireland</ns1:CharacterString>
+            </ns5:country>
+            <ns5:electronicMailAddress>
+                <ns1:CharacterString>test@gla-rad.org</ns1:CharacterString>
+            </ns5:electronicMailAddress>
+        </ns15:address>
+    </ns15:contact>
+    <ns15:productSpecification>
+        <ns15:name>S-125</ns15:name>
+        <ns15:date>2022-10-22</ns15:date>
+        <ns15:productIdentifier>S-125</ns15:productIdentifier>
+        <ns15:number>1</ns15:number>
+        <ns15:compliancyCategory>category1</ns15:compliancyCategory>
+    </ns15:productSpecification>
+    <ns15:defaultLocale>
+        <ns8:PT_Locale>
+            <ns8:language>
+                <ns8:LanguageCode codeList="https://iho.int/S100/5.0.0/resources/Codelists/cat/codelists.xml#S100_MD_LanguageCode" codeListValue="eng" codeSpace="ISO 639-2/T">English</ns8:LanguageCode>
+            </ns8:language>
+            <ns8:country>
+                <ns8:CountryCode codeList="https://iho.int/S100/5.0.0/resources/Codelists/cat/codelists.xml#S100_MD_CountryCode" codeListValue="GBR" codeSpace="ISO 3166-2">United Kingdom</ns8:CountryCode>
+            </ns8:country>
+            <ns8:characterEncoding>
+                <ns8:MD_CharacterSetCode codeList="http://www.iana.org/assignments/character-sets" codeListValue="UTF-8">UTF-8</ns8:MD_CharacterSetCode>
+            </ns8:characterEncoding>
+        </ns8:PT_Locale>
+    </ns15:defaultLocale>
+    <ns15:exchangeCatalogueDescription>
+        <ns1:CharacterString>Test Exchange Set Description.</ns1:CharacterString>
+    </ns15:exchangeCatalogueDescription>
+    <ns15:exchangeCatalogueComment>
+        <ns1:CharacterString>Test Exchange Set Comment.</ns1:CharacterString>
+    </ns15:exchangeCatalogueComment>
+    <ns15:certificates>
+        <ns16:schemeAdministrator id="GRAD"/>
+        <ns16:certificate id="CRT1" issuer="1.2.840.113549.1.9.1=#160d7465737440746573742e636f6d,CN=Test,OU=Test,O=Test,L=Test,ST=Test,C=UK">TUlJRHpUQ0NBcldnQXdJQkFnSVVNQlBlUTFTRHhHQWRBRnIwMmxER2c2OG5UOFF3RFFZSktvWklodmNOQVFFTEJRQXdkakVMTUFrR0ExVUVCaE1DVlVzeERUQUxCZ05WQkFnTUJGUmxjM1F4RFRBTEJnTlZCQWNNQkZSbGMzUXhEVEFMQmdOVkJBb01CRlJsYzNReERUQUxCZ05WQkFzTUJGUmxjM1F4RFRBTEJnTlZCQU1NQkZSbGMzUXhIREFhQmdrcWhraUc5dzBCQ1FFV0RYUmxjM1JBZEdWemRDNWpiMjB3SGhjTk1qTXdPVEU1TVRJME1USXlXaGNOTWpNeE1ERTVNVEkwTVRJeVdqQjJNUXN3Q1FZRFZRUUdFd0pWU3pFTk1Bc0dBMVVFQ0F3RVZHVnpkREVOTUFzR0ExVUVCd3dFVkdWemRERU5NQXNHQTFVRUNnd0VWR1Z6ZERFTk1Bc0dBMVVFQ3d3RVZHVnpkREVOTUFzR0ExVUVBd3dFVkdWemRERWNNQm9HQ1NxR1NJYjNEUUVKQVJZTmRHVnpkRUIwWlhOMExtTnZiVENDQVNJd0RRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQkFLMWRWOU1PanV5OWh2ZGNBSGNMaERMdGJrM0xPK1NjMlNzcnhlQlR1WStHOTVTZ3JQcmdGdzlrTTNmeEcrVWlHd0c0dnRnLzNZMnZWMk13NkJtWjhrUE9UbUFQRDNHK2JoYkJqWHVxanpUeUpFZEZ5RFc3VWJYUERCUGxndTMyRmtVbEFRNUNUUm9FNkZxM1h0UnF0aGJJWDdzRlF2QUpIOXQwUk82NXRkU0hhTkpkYU13V2lOS3pEbGVPSElwbTRCTjJNZGpFWnZnakZjdjdRUXJzRTZVT255Wk42VEZnZlJGU3VBM2tRRW1mNHBUMnkwQWw1M083L1owdlFqaFdBd1p5RVZ0VWhCWXV4Wmh4THlGM1huMllleVJxTFdVNHlUSkV1NThycHlNRDBHL2JGVUh5RitsQ05tbkFuY0tYZnkwN0ZYUE14bzhOMFJxeWd2UlRaNmtDQXdFQUFhTlRNRkV3SFFZRFZSME9CQllFRkpiWmxBK1BtT0ppMGhhdVRXTVpGcU5JdWlic01COEdBMVVkSXdRWU1CYUFGSmJabEErUG1PSmkwaGF1VFdNWkZxTkl1aWJzTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3RFFZSktvWklodmNOQVFFTEJRQURnZ0VCQUY3cndpa3BhVmdQNnNDVk92NWw5WFYraUVHVThFMzJCTm1sbG1hVCtya1B4VjN0cDNlS0E2R1lZb2Q4S3paTzNpMGo5TVZrelIyOGF3bDJZYnNXWUNtdlRnL3pCMlNUdHFVTElOMHplZEN5aWVKOXk0V2dydUlQcFFoRHV4aHltL05IVnNhYTd1UUMrTlFOSUYrMkI0YmFmcHVQaUxqdzZWWnAzQmJ1YVBYYnBybExFR3NJWjlaZTNwNjVlSGlsenpLc1BXbHZOc3JLVllma0Y1Vm5jTXdtZlVScWhZbi8zeC83OWFOdUFSS0FhbGdyWnhJNGd2WDllZUozVWdaUGlTOUtlQ1NUbGlJc2hrSGRvaG0zTUJ0Wm9KVnk1Z2JXSnMxMlgvMkhUSjZ1cDZGTkh1ei9aR1NWRGZNSVVLaGMzOUQ3cGtTbGQ5Z3ZIR0JlQ0tvQlJNYz0=</ns16:certificate>
+    </ns15:certificates>
+    <ns15:dataServerIdentifier>2d7c8116-75a9-4fb8-b1b3-7a698d416b97</ns15:dataServerIdentifier>
+    <ns15:datasetDiscoveryMetadata>
+        <ns15:S100_DatasetDiscoveryMetadata>
+            <ns15:fileName>file:/dataset.XML</ns15:fileName>
+            <ns15:description>
+                <ns1:CharacterString>description</ns1:CharacterString>
+            </ns15:description>
+            <ns15:datasetID>urn:mrn:gla:grad:s125:datasets:XXXX</ns15:datasetID>
+            <ns15:compressionFlag>false</ns15:compressionFlag>
+            <ns15:dataProtection>false</ns15:dataProtection>
+            <ns15:protectionScheme>S100p15</ns15:protectionScheme>
+            <ns15:digitalSignatureReference>DSA</ns15:digitalSignatureReference>
+            <ns15:digitalSignatureValue>
+                <ns16:S100_SE_DigitalSignature id="sig" certificateRef="ref">c2lnbmF0dXJl</ns16:S100_SE_DigitalSignature>
+            </ns15:digitalSignatureValue>
+            <ns15:copyright>true</ns15:copyright>
+            <ns15:classification>
+                <ns12:MD_ClassificationCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml" codeListValue="1">unclassified</ns12:MD_ClassificationCode>
+            </ns15:classification>
+            <ns15:purpose>newDataset</ns15:purpose>
+            <ns15:notForNavigation>true</ns15:notForNavigation>
+            <ns15:specificUsage>
+                <ns14:MD_Usage>
+                    <ns14:specificUsage>
+                        <ns1:CharacterString>testing</ns1:CharacterString>
+                    </ns14:specificUsage>
+                </ns14:MD_Usage>
+            </ns15:specificUsage>
+            <ns15:editionNumber>1</ns15:editionNumber>
+            <ns15:updateNumber>0</ns15:updateNumber>
+            <ns15:updateApplicationDate>2023-01-01</ns15:updateApplicationDate>
+            <ns15:issueDate>2023-01-02</ns15:issueDate>
+            <ns15:issueTime>00:00:00Z</ns15:issueTime>
+            <ns15:producingAgency>
+                <ns5:CI_Responsibility>
+                    <ns5:role>
+                        <ns5:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml" codeListValue="originator">originator</ns5:CI_RoleCode>
+                    </ns5:role>
+                    <ns5:party>
+                        <ns5:CI_Organisation>
+                            <ns5:name>
+<ns1:CharacterString>producingAgency</ns1:CharacterString>
+                            </ns5:name>
+                        </ns5:CI_Organisation>
+                    </ns5:party>
+                </ns5:CI_Responsibility>
+            </ns15:producingAgency>
+            <ns15:producerCode>producerCode</ns15:producerCode>
+            <ns15:encodingFormat>GML</ns15:encodingFormat>
+            <ns15:dataCoverage>
+                <ns15:boundingPolygon>
+                    <ns2:polygon>
+                        <ns9:Polygon>
+                            <ns9:exterior>
+<ns9:LinearRing>
+    <ns9:posList>-10.0000000 -10.0000000 -11.0000000 10.0000000 10.0000000 11.0000000 11.0000000 -11.0000000 -10.0000000 -10.0000000</ns9:posList>
+</ns9:LinearRing>
+                            </ns9:exterior>
+                        </ns9:Polygon>
+                    </ns2:polygon>
+                </ns15:boundingPolygon>
+            </ns15:dataCoverage>
+            <ns15:comment>
+                <ns1:CharacterString>comment</ns1:CharacterString>
+            </ns15:comment>
+            <ns15:metadataDateStamp>2023-01-03</ns15:metadataDateStamp>
+            <ns15:replacedData>false</ns15:replacedData>
+            <ns15:navigationPurpose>overview</ns15:navigationPurpose>
+            <ns15:resourceMaintenance>
+                <ns3:MD_MaintenanceInformation>
+                    <ns3:maintenanceAndUpdateFrequency>
+                        <ns3:MD_MaintenanceFrequencyCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml" codeListValue="continual">continual</ns3:MD_MaintenanceFrequencyCode>
+                    </ns3:maintenanceAndUpdateFrequency>
+                    <ns3:maintenanceDate>
+                        <ns4:Abstract_TypedDate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns5:CI_Date_Type">
+                            <ns5:date>
+<ns1:Date>2023-01-04</ns1:Date>
+                            </ns5:date>
+                        </ns4:Abstract_TypedDate>
+                    </ns3:maintenanceDate>
+                    <ns3:userDefinedMaintenanceFrequency>
+                        <ns1:TM_PeriodDuration>PT2400H</ns1:TM_PeriodDuration>
+                    </ns3:userDefinedMaintenanceFrequency>
+                </ns3:MD_MaintenanceInformation>
+            </ns15:resourceMaintenance>
+        </ns15:S100_DatasetDiscoveryMetadata>
+    </ns15:datasetDiscoveryMetadata>
+    <ns15:supportFileDiscoveryMetadata/>
+    <ns15:catalogueDiscoveryMetadata/>
+</ns15:S100_ExchangeCatalogue>
