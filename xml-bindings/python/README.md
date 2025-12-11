@@ -32,3 +32,8 @@ These issues can be resolved by adding the parameter `--structure-style` with th
 ```
 xsdata generate [SCHEMA FILE] --sturcture-style single-package [OUTPUT PACKAGE NAME]
 ```
+
+## License
+
+Distributed under the MIT No Attribution (MIT-0) License. See
+[LICENSE](../../LICENSE) for more information.

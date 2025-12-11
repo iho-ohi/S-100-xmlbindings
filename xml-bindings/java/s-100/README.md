@@ -27,8 +27,8 @@ discuss what you would like to change.
 Please make sure to update tests as appropriate.
 
 ## License
-Distributed under the Apache License. See [LICENSE](LICENSE) for more
-information.
+Distributed under the MIT No Attribution (MIT-0) License. See
+[LICENSE](../../../LICENSE) for more information.
 
 ## Contact
 Nikolaos Vastardis - Nikolaos.Vastardis@gla-rad.org

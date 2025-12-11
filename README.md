@@ -31,3 +31,8 @@ If you require support for additional languages, we welcome contributions and fe
 * Dataset Parsing: Easily load and interpret S-100 datasets.
 * Validation: Automatically validate S-100 data against the official S-100 schemas.
 * Data Manipulation: Create and modify S-100 datasets through high-level APIs.
+
+## License
+
+Distributed under the MIT No Attribution (MIT-0) License. See
+[LICENSE](./LICENSE) for more information.
