@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:Dataset xmlns:ns0="http://www.iho.int/S-201/gml/cs0/2.0" xmlns:ns1="http://www.opengis.net/gml/3.2" ns1:id="CorkHoleTestDataset">
+    <ns1:boundedBy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:BoundingShapeType">
+        <ns1:Envelope srsName="EPSG:4326" srsDimension="1" xsi:type="ns1:EnvelopeType">
+            <ns1:lowerCorner>51.8916667 1.4233333</ns1:lowerCorner>
+            <ns1:upperCorner>51.8916667 1.4233333</ns1:upperCorner>
+        </ns1:Envelope>
+    </ns1:boundedBy>
+    <ns2:DatasetIdentificationInformation xmlns:ns2="http://www.iho.int/s100gml/5.0">
+        <ns2:encodingSpecification>S-100 Part 10b</ns2:encodingSpecification>
+        <ns2:encodingSpecificationEdition>1.0</ns2:encodingSpecificationEdition>
+        <ns2:productIdentifier>S-201</ns2:productIdentifier>
+        <ns2:productEdition>0.0.1</ns2:productEdition>
+        <ns2:applicationProfile>test</ns2:applicationProfile>
+        <ns2:datasetFileIdentifier>junit</ns2:datasetFileIdentifier>
+        <ns2:datasetTitle>S-201 Cork Hole Test Dataset</ns2:datasetTitle>
+        <ns2:datasetReferenceDate>2001-01-01</ns2:datasetReferenceDate>
+        <ns2:datasetLanguage>eng</ns2:datasetLanguage>
+        <ns2:datasetAbstract>Test dataset for unit testing</ns2:datasetAbstract>
+        <ns2:datasetTopicCategory>oceans</ns2:datasetTopicCategory>
+        <ns2:datasetPurpose>base</ns2:datasetPurpose>
+        <ns2:updateNumber>2</ns2:updateNumber>
+    </ns2:DatasetIdentificationInformation>
+    <ns0:members owns="false">
+        <ns0:AtonStatusInformation ns1:id="ID002">
+            <ns0:ChangeDetails>
+                <ns0:electronicAtonChange>AIS transmitter operating properly</ns0:electronicAtonChange>
+            </ns0:ChangeDetails>
+            <ns0:ChangeTypes>Advanced notice of changes</ns0:ChangeTypes>
+        </ns0:AtonStatusInformation>
+        <ns0:VirtualAISAidToNavigation ns1:id="ID001">
+            <ns1:boundedBy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:BoundingShapeType">
+                <ns1:Envelope srsName="EPSG:4326" srsDimension="1" xsi:type="ns1:EnvelopeType">
+                    <ns1:lowerCorner>51.8916667 1.4233333</ns1:lowerCorner>
+                    <ns1:upperCorner>51.8916667 1.4233333</ns1:upperCorner>
+                </ns1:Envelope>
+            </ns1:boundedBy>
+            <ns0:iDCode>urn:mrn:grad:aton:test:corkhole</ns0:iDCode>
+            <ns0:featureName>
+                <ns0:displayName>1</ns0:displayName>
+                <ns0:language>eng</ns0:language>
+                <ns0:name>Test AtoN for Cork Hole</ns0:name>
+            </ns0:featureName>
+            <ns0:sourceDate>2000-01-01</ns0:sourceDate>
+            <ns0:source>CHT</ns0:source>
+            <ns0:pictorialRepresentation>N/A</ns0:pictorialRepresentation>
+            <ns0:inspectionFrequency>yearly</ns0:inspectionFrequency>
+            <ns0:inspectionRequirements>IALA</ns0:inspectionRequirements>
+            <ns0:aToNMaintenanceRecord>urn:mrn:grad:aton:test:corkhole:maintenance:x001</ns0:aToNMaintenanceRecord>
+            <ns0:installationDate>2000-01-01</ns0:installationDate>
+            <ns0:fixedDateRange>
+                <ns0:dateEnd>
+                    <ns0:date>2099-01-01</ns0:date>
+                </ns0:dateEnd>
+                <ns0:dateStart>
+                    <ns0:date>2001-01-01</ns0:date>
+                </ns0:dateStart>
+            </ns0:fixedDateRange>
+            <ns0:SeasonalActionRequired>none</ns0:SeasonalActionRequired>
+            <ns0:Statuspart xmlns:xlink="http://www.w3.org/1999/xlink" owns="false" xlink:type="simple" xlink:href="ID002" xlink:role="association" xlink:arcrole="urn:IALA:S201:roles:association"/>
+            <ns0:mMSICode>992359598</ns0:mMSICode>
+            <ns0:status>Confirmed</ns0:status>
+            <ns0:virtualAISAidToNavigationType>Special Purpose</ns0:virtualAISAidToNavigationType>
+            <ns0:geometry>
+                <ns2:pointProperty xmlns:ns2="http://www.iho.int/s100gml/5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple">
+                    <ns2:Point>
+                        <ns1:pos srsName="EPSG:4326" srsDimension="1">51.8916667 1.4233333</ns1:pos>
+                    </ns2:Point>
+                </ns2:pointProperty>
+            </ns0:geometry>
+        </ns0:VirtualAISAidToNavigation>
+    </ns0:members>
+</ns0:Dataset>

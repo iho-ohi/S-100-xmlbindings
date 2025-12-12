@@ -7,6 +7,14 @@ target/
 # ---> Java
 *.class
 
+# Python
+**/__pycache__/
+**/.venv/
+**/.venv-*/
+**/.pypirc
+# Also skip the generated python packages
+**/python/s-*/org
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

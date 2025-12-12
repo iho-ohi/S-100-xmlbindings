@@ -1,0 +1,36 @@
+[build-system]
+requires = [
+    "pdm-backend >= 2.4.0",
+    "colorama == 0.4.6",
+    "DateTime == 5.5",
+    "iniconfig == 2.1.0",
+    "iso639-lang == 2.6.3",
+    "packaging == 25.0",
+    "pluggy == 1.6.0",
+    "Pygments == 2.19.2",
+    "pytest == 8.4.2",
+    "pytz == 2025.2",
+    "xsdata == 25.7",
+    "zope.interface == 8.0.1"
+]
+build-backend = "pdm.backend"
+
+[project]
+name = "s201-xml-bindings"
+version = "0.0.4"
+authors = [
+  { name="Nikolaos Vastardis", email="Nikolaos.Vastardis@gla-rad.org" },
+]
+description = "A python package implementing the XML bindings for the IALA S-201 data product specification"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "Apache-2.0"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/gla-rad/S-100-xmlbindings/tree/python"
+Issues = "https://github.com/gla-rad/S-100-xmlbindings/issues"
